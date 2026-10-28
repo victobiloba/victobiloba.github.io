@@ -220,6 +220,8 @@ function toneOf(proj) {
 }
 
 function repoBadge(proj) {
+  // Links to the (public) profile page get no badge; only real repos are labelled
+  if (proj.repoUrl === PROFILE.github) return '';
   return proj.isPublicRepo
     ? '<span class="repo-badge is-public">Public</span>'
     : '<span class="repo-badge">Private</span>';

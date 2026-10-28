@@ -188,8 +188,8 @@
     }
 
     header.cv-header {
-      padding-bottom: 11pt;
-      margin-bottom: 13pt;
+      padding-bottom: 9pt;
+      margin-bottom: 11pt;
       border-bottom: 1.25pt solid var(--ink);
     }
 
@@ -237,7 +237,7 @@
     }
 
     section {
-      margin-bottom: 11pt;
+      margin-bottom: 10pt;
     }
 
     section:last-of-type {
@@ -299,7 +299,7 @@
 
     /* Entries */
     .entry {
-      margin-bottom: 8pt;
+      margin-bottom: 7pt;
     }
 
     .entry-head {
@@ -362,12 +362,24 @@
     }
 
     .stack-line {
-      display: block;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 12pt;
+      row-gap: 0;
+    }
+
+    .entry-sub.stack-line {
+      justify-content: flex-start;
+    }
+
+    .entry-sub.stack-line > :last-child {
+      margin-left: 0;
+      text-align: left;
     }
 
     .entry-link {
-      display: block;
-      margin-top: 0.5pt;
+      display: inline;
       font-size: 8.4pt;
       color: var(--soft);
       text-decoration: none;
@@ -385,7 +397,7 @@
       list-style: disc;
       padding-left: 13pt;
       font-size: 9pt;
-      line-height: 1.44;
+      line-height: 1.42;
       color: var(--ink);
     }
 
@@ -542,9 +554,10 @@
         <div class="skill-row"><strong>Languages:</strong> <span>TypeScript, Python, JavaScript (ES2024+), C / C++, SQL, HTML5, CSS3</span></div>
         <div class="skill-row"><strong>Frontend &amp; Graphics:</strong> <span>React 18/19, Next.js 16, Vite, Tailwind CSS, Three.js (WebGL), HTML5 Canvas, Zustand, Leaflet, Progressive Web Apps (PWA)</span></div>
         <div class="skill-row"><strong>Backend, APIs &amp; Payments:</strong> <span>FastAPI (ASGI), Node.js, Express, Square API (Web Payments SDK, Card Auth/Capture/Void), REST APIs, WebSockets, OAuth 2.0 (PKCE), JWT (HS256)</span></div>
-        <div class="skill-row"><strong>AI, Data &amp; Geospatial:</strong> <span>Gemini API (768-dim Embeddings &amp; Flash), Claude API, OpenAlex &amp; ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn, Selenium</span></div>
+        <div class="skill-row"><strong>AI, Data &amp; Geospatial:</strong> <span>Gemini API (768-dim Embeddings &amp; Flash), Claude API, OpenAlex &amp; ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn</span></div>
         <div class="skill-row"><strong>Data Stores, Infra &amp; Security:</strong> <span>Cloud Firestore, Firebase RTDB, SQLite (WAL), Cloudinary, Nginx (CIDR Perimeter / Reverse Proxy), Docker Compose, AES-256-GCM, Proof-of-Work &amp; Request Signing</span></div>
-        <div class="skill-row"><strong>Embedded, Testing &amp; Tooling:</strong> <span>ESP32-S3, FreeRTOS, I²C/SPI/UART, Vitest, fast-check (Property-Based Testing), Pytest, Node Test Runner, Git, GitHub Actions, Vercel, Render, Linux</span></div>
+        <div class="skill-row"><strong>Automation &amp; Testing:</strong> <span>Selenium WebDriver, Pytest, Vitest, fast-check (Property-Based Testing), Node Test Runner, GitHub Actions</span></div>
+        <div class="skill-row"><strong>Embedded &amp; Tooling:</strong> <span>ESP32-S3, FreeRTOS, I²C/SPI/UART, Git, Vercel, Render, Linux</span></div>
       </div>
     </section>
 
@@ -556,7 +569,7 @@
           <h3 class="entry-title">ThesisBridge — Evidence-Grounded Academic Intelligence &amp; Outreach Platform</h3>
           <span class="entry-date">2026 – Present</span>
         </div>
-        <p class="entry-sub stack-line"><span class="tech-stack">React 18 · TypeScript · FastAPI · Python 3.11+ · Firestore · OpenAlex · Gemini &amp; Claude APIs</span></p>
+        <p class="entry-sub stack-line"><span class="tech-stack">React 18 · TypeScript · FastAPI · Python 3.11+ · Firestore · OpenAlex · Gemini &amp; Claude APIs</span> <a class="entry-link" href="https://www.thesisbridgeai.com">thesisbridgeai.com</a></p>
         <ul class="bullets">
           <li>Architected a full-stack matchmaking engine resolving universities to canonical ROR v2 IDs and indexing faculty across OpenAlex (250M+ works), enforcing a strict source-backed-or-empty contract and an ORCID/byline career-stage gate to eliminate hallucinated advisors.</li>
           <li>Built a dual-document ingestion pipeline (<code>pymupdf4llm</code>) parsing thesis PDFs and CVs into a 4-category skill taxonomy, ranking research fit with 768-dim Gemini embeddings, Gemini Flash / Claude fallback evaluation, and verified NSF/NIH RePORTER grant attribution.</li>
@@ -593,7 +606,7 @@
           <h3 class="entry-title">Abuja Story — 3D Browser Life Simulation &amp; Anti-Automation Security Engine</h3>
           <span class="entry-date">2026</span>
         </div>
-        <p class="entry-sub stack-line"><span class="tech-stack">Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM) · Firebase</span></p>
+        <p class="entry-sub stack-line"><span class="tech-stack">Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM) · Firebase</span> <a class="entry-link" href="https://abjlife.onrender.com">abjlife.onrender.com</a></p>
         <ul class="bullets">
           <li>Built a browser 3D city simulation generated from real OpenStreetMap Abuja roads, waterways, and landmarks via a Python geometry pipeline (<code>build-abuja-map.py</code>), featuring graph-routed rides (<code>roadGraph.ts</code>), procedural audio synthesis, encrypted messaging, and multiplayer social systems.</li>
           <li class="extra-detail">Engineered a custom defense-in-depth anti-bot guard (<code>lib/guard/</code>): Proof-of-Work <code>/api/handshake</code> challenges, WebDriver/CDP headless detection, ephemeral in-memory request signing keys preventing <code>curl</code> cookie replay, synthetic DOM event rejection, and bundle obfuscation.</li>
@@ -648,7 +661,7 @@
           <span class="tech-stack">React 18 · TypeScript · FastAPI · Python · Firestore · Gemini &amp; Claude APIs</span>
         </div>
         <ul class="bullets">
-          <li>Building an evidence-grounded academic intelligence and outreach platform end to end: React/TypeScript UI, FastAPI on Cloud Firestore, default-deny JWT sessions, an AES-256-GCM token vault and OAuth 2.0 PKCE sign-in, verified by Pytest with stubbed LLM calls.</li>
+          <li>Building an evidence-grounded academic intelligence platform end to end: React/TypeScript UI, FastAPI on Cloud Firestore, JWT sessions, an AES-256-GCM token vault and OAuth 2.0 PKCE, all verified by Pytest.</li>
         </ul>
       </article>
 

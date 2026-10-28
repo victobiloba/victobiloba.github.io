@@ -18,16 +18,17 @@ Full-Stack & AI Systems Software Engineer (B.Eng. Computer Engineering) experien
 - **Languages:** TypeScript, Python, JavaScript (ES2024+), C / C++, SQL, HTML5, CSS3
 - **Frontend & Graphics:** React 18/19, Next.js 16, Vite, Tailwind CSS, Three.js (WebGL), HTML5 Canvas, Zustand, Leaflet, Progressive Web Apps (PWA)
 - **Backend, APIs & Payments:** FastAPI (ASGI), Node.js, Express, Square API (Web Payments SDK, Card Auth/Capture/Void), REST APIs, WebSockets, OAuth 2.0 (PKCE), JWT (HS256)
-- **AI, Data & Geospatial:** Gemini API (768-dim Embeddings & Flash), Claude API, OpenAlex & ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn, Selenium WebDriver
+- **AI, Data & Geospatial:** Gemini API (768-dim Embeddings & Flash), Claude API, OpenAlex & ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn
 - **Databases, Infra & Security:** Cloud Firestore, Firebase RTDB, SQLite (WAL), Cloudinary, Nginx (CIDR Perimeter / Reverse Proxy), Docker Compose, AES-256-GCM, Proof-of-Work & Request Signing
-- **Embedded, Testing & Tooling:** ESP32-S3, FreeRTOS, I²C/SPI/UART, Vitest, fast-check (Property-Based Testing), Pytest, Node Test Runner, Git, GitHub Actions, Vercel, Render, Linux
+- **Automation & Testing:** Selenium WebDriver, Pytest, Vitest, fast-check (Property-Based Testing), Node Test Runner, GitHub Actions
+- **Embedded & Tooling:** ESP32-S3, FreeRTOS, I²C/SPI/UART, Git, Vercel, Render, Linux
 
 ---
 
 ## SELECTED SOFTWARE ENGINEERING PROJECTS
 
 ### **ThesisBridge — Evidence-Grounded Academic Intelligence & Outreach Platform** | *2026 – Present*
-*React 18 · TypeScript · Vite · FastAPI · Python 3.11+ · Cloud Firestore · OpenAlex · Gemini & Claude APIs*
+*React 18 · TypeScript · Vite · FastAPI · Python 3.11+ · Cloud Firestore · OpenAlex · Gemini & Claude APIs* · [thesisbridgeai.com](https://www.thesisbridgeai.com)
 - Architected a full-stack graduate admissions intelligence platform resolving institutions via ROR v2 and indexing faculty across the live OpenAlex graph (250M+ scholarly works), enforcing a source-backed-or-empty data contract and an ORCID/publication career-stage gate to eliminate hallucinated faculty.
 - Built a dual-document ingestion pipeline (`pymupdf4llm`) parsing thesis PDFs and CVs into a 4-category skill taxonomy, ranking advisor fit via 768-dim Gemini embeddings with Gemini Flash / Claude fallback evaluation and verified NSF/NIH RePORTER grant attribution.
 - Shipped a rubric-scored Statement of Purpose Studio (DOCX/PDF export) and an outreach CRM with A/B tone telemetry, protected by sliding-window IP rate limiting.
@@ -45,7 +46,7 @@ Full-Stack & AI Systems Software Engineer (B.Eng. Computer Engineering) experien
 - Built a mobile-first React 19 + Leaflet Citizen PWA localized into 5 languages (English, Pidgin, Yoruba, Hausa, Igbo) and verified core routing invariants—non-emptiness, input-order determinism, and capability monotonicity—using `fast-check` property-based testing.
 
 ### **Abuja Story — 3D Browser Life Simulation & Anti-Automation Security Engine** | *2026*
-*Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM Pipeline) · Firebase Admin*
+*Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM Pipeline) · Firebase Admin* · [abjlife.onrender.com](https://abjlife.onrender.com)
 - Built a browser-played 3D city simulation generated from real OpenStreetMap Abuja roads, waterways, parks, and Aso Rock geometry via a custom Python pipeline (`build-abuja-map.py`), featuring real road-network ride routing (`roadGraph.ts`), procedural theme synthesis, end-to-end message encryption, and multiplayer social/economic systems.
 - Engineered a defense-in-depth anti-scraping and anti-bot guard (`lib/guard/`): Proof-of-Work `/api/handshake` passes, WebDriver/CDP headless browser detection, ephemeral in-memory request signing keys preventing `curl` cookie replay, synthetic DOM input rejection, and production bundle obfuscation.
 
