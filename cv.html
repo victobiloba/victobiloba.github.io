@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>Victor Oluwatobiloba Ogundipe — Software Engineering CV</title>
+  <meta name="description" content="Curriculum Vitae of Victor Oluwatobiloba Ogundipe — Full-Stack & AI Systems Software Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet" />
+  <style>
+    /* ======================================================================
+       Print-first, single-column ATS CV.
+       Readability: 9.5pt body on 1.5 leading, aligned skill labels,
+       tech stacks on their own line and generous section rhythm.
+       ====================================================================== */
+    :root {
+      --chrome-light: #efeee9;
+      --chrome-dark: #0b0b0c;
+      --paper-light: #ffffff;
+      --paper-dark: #141416;
+      --ink-light: #15140f;
+      --ink-dark: #f3f2ee;
+      --muted-light: #46453f;
+      --muted-dark: #c4c3bd;
+      --soft-light: #6a6962;
+      --soft-dark: #8d8c86;
+      --accent-light: #b3400e;
+      --accent-dark: #ff8a5c;
+      --rule-light: #dcd9d0;
+      --rule-dark: #2e2e33;
+
+      --chrome: var(--chrome-light);
+      --paper: var(--paper-light);
+      --ink: var(--ink-light);
+      --muted: var(--muted-light);
+      --soft: var(--soft-light);
+      --accent: var(--accent-light);
+      --rule: var(--rule-light);
+
+      color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --chrome: var(--chrome-dark);
+        --paper: var(--paper-dark);
+        --ink: var(--ink-dark);
+        --muted: var(--muted-dark);
+        --soft: var(--soft-dark);
+        --accent: var(--accent-dark);
+        --rule: var(--rule-dark);
+      }
+    }
+
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+      color-scheme: dark;
+      --chrome: var(--chrome-dark);
+      --paper: var(--paper-dark);
+      --ink: var(--ink-dark);
+      --muted: var(--muted-dark);
+      --soft: var(--soft-dark);
+      --accent: var(--accent-dark);
+      --rule: var(--rule-dark);
+    }
+
+    :root:has(> head > meta[name="color-scheme"][content="light"]) {
+      color-scheme: light;
+      --chrome: var(--chrome-light);
+      --paper: var(--paper-light);
+      --ink: var(--ink-light);
+      --muted: var(--muted-light);
+      --soft: var(--soft-light);
+      --accent: var(--accent-light);
+      --rule: var(--rule-light);
+    }
+
+    @supports (color: light-dark(white, black)) {
+      :root {
+        --chrome: light-dark(var(--chrome-light), var(--chrome-dark));
+        --paper: light-dark(var(--paper-light), var(--paper-dark));
+        --ink: light-dark(var(--ink-light), var(--ink-dark));
+        --muted: light-dark(var(--muted-light), var(--muted-dark));
+        --soft: light-dark(var(--soft-light), var(--soft-dark));
+        --accent: light-dark(var(--accent-light), var(--accent-dark));
+        --rule: light-dark(var(--rule-light), var(--rule-dark));
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      font-variant-ligatures: none;
+      background: var(--chrome);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      padding: 28px 16px 56px;
+    }
+
+    .mono,
+    .tech-stack,
+    code {
+      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-variant-ligatures: none;
+    }
+
+    /* ---------- Screen toolbar ---------- */
+    .toolbar {
+      max-width: 210mm;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+    }
+
+    .toolbar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--ink);
+      font: 500 0.84rem/1 'Geist', system-ui, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      border-color: var(--soft);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ---------- Sheet ---------- */
+    .sheet {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 16mm 17mm;
+      box-shadow: 0 30px 80px -40px rgb(0 0 0 / 0.35);
+    }
+
+    header.cv-header {
+      padding-bottom: 11pt;
+      margin-bottom: 13pt;
+      border-bottom: 1.25pt solid var(--ink);
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .role-subtitle {
+      margin-top: 4pt;
+      font-size: 11pt;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .contact-bar {
+      margin-top: 8pt;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5pt;
+      font-size: 9pt;
+      color: var(--muted);
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2pt 9pt;
+    }
+
+    .contact-bar a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .contact-bar a:hover {
+      color: var(--accent);
+    }
+
+    .sep {
+      color: var(--soft);
+    }
+
+    section {
+      margin-bottom: 12pt;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 7pt;
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      padding-bottom: 4pt;
+      margin-bottom: 8pt;
+      border-bottom: 0.75pt solid var(--rule);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2::before {
+      content: "";
+      width: 6pt;
+      height: 6pt;
+      flex-shrink: 0;
+      border-radius: 1.5pt;
+      background: var(--accent);
+    }
+
+    .summary {
+      font-size: 9.2pt;
+      line-height: 1.52;
+      color: var(--ink);
+    }
+
+    /* Skills: aligned label column for fast scanning */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 47mm minmax(0, 1fr);
+      gap: 3pt 10pt;
+      font-size: 8.9pt;
+      line-height: 1.42;
+    }
+
+    .skill-row {
+      display: contents;
+    }
+
+    .skill-row strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .skill-row span {
+      color: var(--muted);
+    }
+
+    /* Entries */
+    .entry {
+      margin-bottom: 9pt;
+    }
+
+    .entry-head {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    ul.bullets li,
+    .compact-list li {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14pt;
+    }
+
+    .entry-title {
+      font-size: 10pt;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--ink);
+    }
+
+    .entry-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .entry-date {
+      flex-shrink: 0;
+      white-space: nowrap;
+      font-size: 8.8pt;
+      font-weight: 500;
+      color: var(--soft);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .entry-sub {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1pt 14pt;
+      margin: 1.5pt 0 4pt;
+      font-size: 8.6pt;
+      color: var(--soft);
+    }
+
+    .entry-sub > span:last-child {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .stack-line {
+      display: block;
+    }
+
+    .entry-link {
+      display: block;
+      margin-top: 0.5pt;
+      font-size: 8.4pt;
+      color: var(--soft);
+      text-decoration: none;
+    }
+
+    .tech-stack {
+      font-size: 8.1pt;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    ul.bullets,
+    .compact-list {
+      list-style: disc;
+      padding-left: 13pt;
+      font-size: 9pt;
+      line-height: 1.44;
+      color: var(--ink);
+    }
+
+    ul.bullets li,
+    .compact-list li {
+      margin-bottom: 2pt;
+      padding-left: 1.5pt;
+    }
+
+    ul.bullets li:last-child,
+    .compact-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    ul.bullets li::marker,
+    .compact-list li::marker {
+      color: var(--soft);
+    }
+
+    .compact-list {
+      margin-top: 7pt;
+    }
+
+    code {
+      font-size: 8.4pt;
+    }
+
+    /* Concise 1-page density toggle */
+    body.concise .extra-detail {
+      display: none;
+    }
+    body.concise .entry {
+      margin-bottom: 7pt;
+    }
+    body.concise section {
+      margin-bottom: 10pt;
+    }
+    body.concise ul.bullets {
+      font-size: 8.9pt;
+      line-height: 1.42;
+    }
+
+    @media (forced-colors: active) {
+      .sheet, .toolbar, .btn {
+        border: 1px solid CanvasText;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sheet {
+        padding: 22px 18px;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1pt;
+      }
+      .skill-row span {
+        margin-bottom: 5pt;
+      }
+      .entry-head,
+      .entry-sub {
+        flex-direction: column;
+        gap: 1pt;
+      }
+      .entry-sub > span:last-child {
+        margin-left: 0;
+        text-align: left;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 10mm 13mm;
+    }
+
+    @media print {
+      :root {
+        color-scheme: light !important;
+        --paper: #ffffff !important;
+        --ink: #15140f !important;
+        --muted: #3f3e39 !important;
+        --soft: #5f5e58 !important;
+        --accent: #b3400e !important;
+        --rule: #d6d3ca !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #15140f !important;
+        padding: 0 !important;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .sheet {
+        max-width: none !important;
+        width: 100% !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="CV document actions">
+    <div class="toolbar-group">
+      <a class="btn" href="./index.html">← Portfolio</a>
+      <button type="button" class="btn" id="density-btn" aria-pressed="false">
+        Switch to 1-Page Concise Mode
+      </button>
+    </div>
+    <div class="toolbar-group">
+      <a class="btn" href="./Victor_Ogundipe_SWE_CV.pdf?download=1" download="Victor_Ogundipe_SWE_CV.pdf">
+        Download PDF
+      </a>
+      <button type="button" class="btn btn-primary" onclick="window.print()">
+        Print / Save PDF
+      </button>
+    </div>
+  </nav>
+
+  <main class="sheet" id="cv-sheet">
+    <header class="cv-header">
+      <h1>VICTOR OLUWATOBILOBA OGUNDIPE</h1>
+      <p class="role-subtitle">Full-Stack &amp; AI Systems Software Engineer</p>
+      <div class="contact-bar">
+        <div class="contact-line">
+          <span>Ibadan, Oyo State, Nigeria (Open to Remote &amp; Relocation)</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="tel:+2347043090092">+234 704 309 0092</a>
+        </div>
+        <div class="contact-line">
+          <a href="mailto:ogundipe.victobiloba@gmail.com">ogundipe.victobiloba@gmail.com</a>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="https://github.com/victobiloba">github.com/victobiloba</a>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="https://linkedin.com/in/victobiloba">linkedin.com/in/victobiloba</a>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="sec-summary">
+      <h2 id="sec-summary">Professional Summary</h2>
+      <p class="summary">
+        Full-Stack &amp; AI Systems Engineer (B.Eng. Computer Engineering) experienced in architecting end-to-end web platforms, evidence-grounded LLM &amp; scholarly-graph pipelines, fintech/commerce payment workflows, and fault-tolerant network and edge systems. Proven track record shipping TypeScript/React, Python/FastAPI, Node.js/Express, and C++/FreeRTOS software with rigorous security guards and automated verification.
+      </p>
+    </section>
+
+    <section aria-labelledby="sec-skills">
+      <h2 id="sec-skills">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row"><strong>Languages:</strong> <span>TypeScript, Python, JavaScript (ES2024+), C / C++, SQL, HTML5, CSS3</span></div>
+        <div class="skill-row"><strong>Frontend &amp; Graphics:</strong> <span>React 18/19, Next.js 16, Vite, Tailwind CSS, Three.js (WebGL), HTML5 Canvas, Zustand, Leaflet, Progressive Web Apps (PWA)</span></div>
+        <div class="skill-row"><strong>Backend, APIs &amp; Payments:</strong> <span>FastAPI (ASGI), Node.js, Express, Square API (Web Payments SDK, Card Auth/Capture/Void), REST APIs, WebSockets, OAuth 2.0 (PKCE), JWT (HS256)</span></div>
+        <div class="skill-row"><strong>AI, Data &amp; Geospatial:</strong> <span>Gemini API (768-dim Embeddings &amp; Flash), Claude API, OpenAlex &amp; ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn, Selenium</span></div>
+        <div class="skill-row"><strong>Data Stores, Infra &amp; Security:</strong> <span>Cloud Firestore, Firebase RTDB, SQLite (WAL), Cloudinary, Nginx (CIDR Perimeter / Reverse Proxy), Docker Compose, AES-256-GCM, Proof-of-Work &amp; Request Signing</span></div>
+        <div class="skill-row"><strong>Embedded, Testing &amp; Tooling:</strong> <span>ESP32-S3, FreeRTOS, I²C/SPI/UART, Vitest, fast-check (Property-Based Testing), Pytest, Node Test Runner, Git, GitHub Actions, Vercel, Render, Linux</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-projects">
+      <h2 id="sec-projects">Selected Software Engineering Projects</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">ThesisBridge — Evidence-Grounded Academic Intelligence &amp; Outreach Platform</h3>
+          <span class="entry-date">2026 – Present</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">React 18 · TypeScript · FastAPI · Python 3.11+ · Firestore · OpenAlex · Gemini &amp; Claude APIs</span> <a class="entry-link" href="https://github.com/victobiloba/ThesisBridge">github.com/victobiloba/ThesisBridge</a></p>
+        <ul class="bullets">
+          <li>Architected a full-stack matchmaking engine resolving universities to canonical ROR v2 IDs and indexing faculty across OpenAlex (250M+ works), enforcing a strict source-backed-or-empty contract and an ORCID/byline career-stage gate to eliminate hallucinated advisors.</li>
+          <li>Built a dual-document ingestion pipeline (<code>pymupdf4llm</code>) parsing thesis PDFs and CVs into a 4-category skill taxonomy, ranking research fit with 768-dim Gemini embeddings, Gemini Flash / Claude fallback evaluation, and verified NSF/NIH RePORTER grant attribution.</li>
+          <li class="extra-detail">Engineered default-deny HS256 JWT session auth, an AES-256-GCM token vault, sliding-window IP rate limiting, minimal-scope OAuth 2.0 PKCE Sign-In, a rubric-scored Statement of Purpose Studio (DOCX/PDF export), and an outreach CRM with A/B tone telemetry.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Farm Pay — Multi-Tenant E-Commerce Storefront, Wholesale &amp; Farmer Terminal</h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">Node.js 22 · Express · Square API · JavaScript · QR Pickup Scanner · node:test</span></p>
+        <ul class="bullets">
+          <li>Built a full-stack commerce store and merchant portal on the Square API supporting retail checkout (Apple Pay, Google Pay, cards), access-gated wholesale ordering (case pricing, configurable $200k caps, delivery/pickup routing), and direct browser-to-Square tokenization.</li>
+          <li>Engineered a <code>/farmer</code> phone-order terminal implementing two-step card-on-file authorization holds with deferred capture upon packing, voiding, signed payment links, and QR pickup verification, backed by progressive-enhancement shared pricing modules and mock-Square automated tests.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">MedRoute — Capability-Based Emergency Medical Routing Platform</h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">TypeScript Monorepo · React 19 PWA · Node.js · Leaflet · OSRM · Vitest · fast-check</span></p>
+        <ul class="bullets">
+          <li>Developed an Expected Time to Definitive Care (ETDC) routing engine (<code>POST /v2/routing/evaluate</code>) matching patients to facilities verified to treat their emergency rather than merely the nearest clinic, featuring stabilize-first triage, an F0–F4 fallback ladder, capacity leases, and idempotent retries.</li>
+          <li>Combined self-hosted OSRM (Nigeria OSM road graph), circuit-breaker-guarded Google Route Matrix live-traffic refinement with hysteresis, and Haversine <code>L1</code> fallback; built a 5-language React 19 Citizen PWA and verified core invariants (non-emptiness, determinism, monotonicity) with <code>fast-check</code>.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Abuja Story — 3D Browser Life Simulation &amp; Anti-Automation Security Engine</h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM) · Firebase</span> <a class="entry-link" href="https://github.com/victobiloba/abjlife">github.com/victobiloba/abjlife</a></p>
+        <ul class="bullets">
+          <li>Built a browser 3D city simulation generated from real OpenStreetMap Abuja roads, waterways, and landmarks via a Python geometry pipeline (<code>build-abuja-map.py</code>), featuring graph-routed rides (<code>roadGraph.ts</code>), procedural audio synthesis, encrypted messaging, and multiplayer social systems.</li>
+          <li class="extra-detail">Engineered a custom defense-in-depth anti-bot guard (<code>lib/guard/</code>): Proof-of-Work <code>/api/handshake</code> challenges, WebDriver/CDP headless detection, ephemeral in-memory request signing keys preventing <code>curl</code> cookie replay, synthetic DOM event rejection, and bundle obfuscation.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">NetShare LAN — Subnet-Isolated File Sharing &amp; Media Streaming Infrastructure</h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">Python · FastAPI · Nginx · WebSockets · SQLite (WAL) · Docker Compose · Pytest</span></p>
+        <ul class="bullets">
+          <li>Engineered a two-layer intranet file-sharing system pairing an Nginx RFC1918 CIDR reverse-proxy perimeter with FastAPI middleware that dynamically introspects host NICs to enforce strict same-subnet (<code>STRICT_SAME_SUBNET</code>) access and audit blocked WAN traffic.</li>
+          <li class="extra-detail">Implemented a 5 MB chunked multi-gigabyte upload pipeline with SHA-256 verification, HTTP 206 Partial Content byte-range video/audio streaming, real-time WebSocket LAN peer presence, and SQLite WAL multi-user authentication.</li>
+        </ul>
+      </article>
+
+      <article class="entry extra-detail">
+        <div class="entry-head">
+          <h3 class="entry-title">Codebase DNA — Interactive GitHub Repository Organism &amp; Dead-Code Visualizer</h3>
+          <span class="entry-date">2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">JavaScript (ES Modules) · HTML5 Canvas · Static Import Graph Analysis · Node.js</span></p>
+        <ul class="bullets">
+          <li>Created a zero-dependency static-analysis and physics-driven Canvas visualizer mapping GitHub repos into living organisms (modules as organs, files across 15+ languages as cells, imports as veins, high fan-in hotspots as stress, and unreferenced files as scar tissue) with framework-route dead-code heuristics and Markdown/PNG export.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title"><a href="https://github.com/victobiloba/HerdSense">HerdSense — Edge-ML Wearable Biosensing &amp; Cloud Telemetry System</a></h3>
+          <span class="entry-date">Mar 2026 – Aug 2026</span>
+        </div>
+        <p class="entry-sub stack-line"><span class="tech-stack">C++ · ESP32-S3 · FreeRTOS · LittleFS · Firebase RTDB · EasyEDA PCB · Web Dashboard</span> <a class="entry-link" href="https://github.com/victobiloba/HerdSense">github.com/victobiloba/HerdSense</a></p>
+        <ul class="bullets">
+          <li>Built end-to-end multi-modal biosensing firmware (4 concurrent FreeRTOS tasks, 3 mutexes) sampling PPG, IR thermometry, 25 Hz IMU, and ToF contact-gating across a dual I²C bus with on-device C++ DFT spectral extraction, 3-day LittleFS flash buffering, Firebase RTDB bulk resync, and a web dashboard with CSV export &amp; Telegram alerts.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="sec-experience">
+      <h2 id="sec-experience">Work Experience &amp; Open Source</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Freelance Software Automation Engineer — Independent Contract</h3>
+          <span class="entry-date">Sep 2024 – Feb 2025</span>
+        </div>
+        <div class="entry-sub">
+          <span>Remote, Nigeria</span>
+          <span class="tech-stack">Python · Selenium WebDriver · Pandas · NumPy</span>
+        </div>
+        <ul class="bullets">
+          <li>Engineered and deployed a Python/Selenium browser automation pipeline handling authenticated session management, dynamic DOM synchronization, and structured extraction, validating outputs with Pandas and NumPy across the full contract lifecycle.</li>
+        </ul>
+      </article>
+
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Open-Source Contributor — <code>sciencecorp/synapse-python</code></h3>
+          <span class="entry-date">Oct 2026</span>
+        </div>
+        <div class="entry-sub">
+          <span>Science Corp · Remote</span>
+          <span class="tech-stack">Python · gRPC Simulator · BCI Device Client</span>
+        </div>
+        <ul class="bullets">
+          <li>Diagnosed and patched a <code>SpikeSource</code> simulator startup crash in Science Corp's Python BCI device client (<code>synapse-python</code>).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="sec-education">
+      <h2 id="sec-education">Education &amp; Publications</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">B.Eng. Computer Engineering — Federal University of Technology Akure (FUTA)</h3>
+          <span class="entry-date">Oct 2020 – Expected Nov 2026</span>
+        </div>
+        <div class="entry-sub">
+          <span><strong>Second Class Upper Honours</strong> · Akure, Nigeria</span>
+          <span>DSA · Networks · Embedded · DSP</span>
+        </div>
+      </div>
+      <ul class="compact-list">
+        <li><strong>IEEE Publication (2026):</strong> Ogundipe, V.O., &amp; Adedokun, A. <em>“Development of an IoT-based Wearable Device for Real-Time Health and Activities Monitoring of Native Fulani Cattle.”</em> 2026 IEEE NIGERCON, Lagos <em>(Conditionally accepted)</em>.</li>
+        <li><strong>Machine Learning Training:</strong> Applied Machine Learning Fellow, <em>AI Federax</em> (2024–2025), a year-long applied ML programme.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const densityBtn = document.getElementById('density-btn');
+    densityBtn?.addEventListener('click', () => {
+      const concise = document.body.classList.toggle('concise');
+      densityBtn.setAttribute('aria-pressed', String(concise));
+      densityBtn.textContent = concise ? 'Switch to 2-Page Full CV' : 'Switch to 1-Page Concise Mode';
+    });
+  </script>
+</body>
+</html>

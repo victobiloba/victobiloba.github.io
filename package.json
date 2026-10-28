@@ -1,0 +1,16 @@
+{
+  "name": "victor-ogundipe-portfolio",
+  "version": "1.0.0",
+  "description": "Software Engineering Portfolio & ATS-Ready Curriculum Vitae for Victor Oluwatobiloba Ogundipe.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:pdf": "node scripts/generate-pdf.js",
+    "test": "node --test test/portfolio.test.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,416 @@
+export const PROFILE = {
+  name: 'Victor Oluwatobiloba Ogundipe',
+  shortName: 'Victor Ogundipe',
+  role: 'Full-Stack & AI Systems Software Engineer',
+  location: 'Ibadan, Oyo State, Nigeria · Remote / Relocation Ready',
+  email: 'ogundipe.victobiloba@gmail.com',
+  phone: '+234 704 309 0092',
+  github: 'https://github.com/victobiloba',
+  linkedin: 'https://linkedin.com/in/victobiloba',
+  cvPdf: './Victor_Ogundipe_SWE_CV.pdf',
+  cvHtml: './cv.html',
+};
+
+export const PROJECTS = [
+  {
+    id: 'thesisbridge',
+    number: '01',
+    title: 'ThesisBridge',
+    tagline: 'Evidence-Grounded Academic Intelligence & Outreach Platform',
+    period: '2026 – Present',
+    categories: ['ai', 'fullstack'],
+    categoryLabels: ['AI & Data Systems', 'Full-Stack Web'],
+    accent: 'indigo',
+    repoUrl: 'https://github.com/victobiloba/ThesisBridge',
+    repoLabel: 'GitHub (Monorepo)',
+    isPublicRepo: false,
+    summary:
+      'Full-stack academic matchmaking and outreach engine indexing 250M+ OpenAlex scholarly works with ROR v2 entity disambiguation, 768-dim Gemini embedding ranking, verified NSF/NIH grant attribution, and a zero-hallucination data contract.',
+    metrics: [
+      { value: '250M+', label: 'OpenAlex scholarly works queried' },
+      { value: '768-dim', label: 'Gemini embeddings + Claude fallback' },
+      { value: '0%', label: 'Synthesized advisor emails or grants' },
+    ],
+    tech: [
+      'React 18',
+      'TypeScript',
+      'Vite',
+      'FastAPI',
+      'Python 3.11+',
+      'Cloud Firestore',
+      'OpenAlex & ROR v2',
+      'Gemini & Claude APIs',
+      'AES-256-GCM',
+      'Pytest',
+    ],
+    pipeline: [
+      { step: 'Ingest', detail: 'PyMuPDF4LLM Thesis & CV Taxonomy' },
+      { step: 'Resolve', detail: 'ROR v2 + OpenAlex 250M+ Graph' },
+      { step: 'Rank', detail: '768-d Gemini Embeddings + LLM Judge' },
+      { step: 'Verify', detail: 'NSF/NIH Grants & ORCID Contacts' },
+      { step: 'Deliver', detail: 'SOP Studio & PKCE Outreach CRM' },
+    ],
+    problem:
+      'Prospective graduate researchers waste hundreds of hours sending generic outreach to outdated faculty directories or relying on LLMs that hallucinate advisor emails, lab focus, and active grants.',
+    highlights: [
+      'Enforced a strict source-backed-or-empty schema: every institution, ORCID email, DOI, and grant award must resolve against ROR v2, OpenAlex, Crossref, or NSF/NIH RePORTER, with a career-stage gate filtering out postdocs and graduate students.',
+      'Built a dual-document ingestion engine (pymupdf4llm) extracting heading hierarchies and toolchains from thesis PDFs and CVs into a universal 4-category skill taxonomy to identify concrete methodological bridge-points.',
+      'Engineered default-deny HS256 JWT session authentication, an AES-256-GCM encrypted token vault, sliding-window IP rate limiting, minimal-scope Google OAuth 2.0 PKCE Sign-In (zero inbox read/send access), an interactive 3-rubric SOP Studio (DOCX/PDF export), and an A/B outreach telemetry tracker.',
+    ],
+    verification:
+      'Automated FastAPI pytest suite (with billed LLM calls deterministically stubbed in conftest.py) paired with frontend accessibility verification (npm run test:a11y).',
+  },
+  {
+    id: 'farmpay',
+    number: '02',
+    title: 'Farm Pay',
+    tagline: 'Multi-Tenant E-Commerce Storefront, Wholesale & Farmer Card-on-File Terminal',
+    period: '2026',
+    categories: ['fullstack'],
+    categoryLabels: ['Full-Stack & Fintech'],
+    accent: 'emerald',
+    repoUrl: 'https://github.com/vivaciousval/Farmpay',
+    repoLabel: 'GitHub (FarmPay)',
+    isPublicRepo: false,
+    summary:
+      'Production commerce storefront, access-gated wholesale portal, and phone-order merchant terminal built on the Square API—supporting two-step card authorization holds, deferred capture, voiding, signed payment links, and QR pickup scanning.',
+    metrics: [
+      { value: '$200k', label: 'Configurable wholesale order cap' },
+      { value: '2-Step', label: 'Card auth hold → capture or void' },
+      { value: '100%', label: 'No-JS progressive enhancement' },
+    ],
+    tech: [
+      'Node.js 22',
+      'Express',
+      'Square API',
+      'Web Payments SDK',
+      'JavaScript (ESM)',
+      'QR Scanner',
+      'Nodemailer',
+      'node:test',
+      'Vercel / Render',
+    ],
+    pipeline: [
+      { step: 'Storefront', detail: 'Retail, /wholesale & /farmer Portals' },
+      { step: 'Tokenize', detail: 'Browser → Square PCI-Safe SDK' },
+      { step: 'Authorize', detail: 'Card Hold or Signed Payment Link' },
+      { step: 'Fulfill', detail: 'Capture on Pack / Void / Delivery' },
+      { step: 'Handoff', detail: 'QR Pickup Verification & Receipts' },
+    ],
+    problem:
+      'Regional farms juggle retail walk-ups, high-value wholesale restaurant buyers, and phone orders where final weight is only known after packing—making standard single-step checkout flows unusable.',
+    highlights: [
+      'Engineered a dedicated /farmer phone-order terminal where staff place an initial card authorization hold without charging, then capture once weighed/packed, void on cancellation, or send a cryptographically signed self-serve payment link.',
+      'Supported retail Apple Pay, Google Pay, and card checkout alongside an access-gated /wholesale tier unlocking case pricing, delivery vs. farm-pickup routing, and configurable $200,000 order caps while keeping raw card data strictly between browser and Square.',
+      'Shared pricing, tax, and pickup-window logic isomorphically between Express HTML views and client scripts so shopping carts, steppers, and checkout work seamlessly even with JavaScript disabled.',
+    ],
+    verification:
+      '7 automated node:test suites (server, farmer, wholesale, pickup, delivery, schedule, shared) executing against an in-process mock Square API.',
+  },
+  {
+    id: 'medroute',
+    number: '03',
+    title: 'MedRoute',
+    tagline: 'Capability-Based Emergency Medical Routing Engine & Multilingual Citizen PWA',
+    period: '2026',
+    categories: ['fullstack', 'ai'],
+    categoryLabels: ['Full-Stack Web', 'AI & Geospatial Systems'],
+    accent: 'rose',
+    repoUrl: 'https://github.com/victobiloba',
+    repoLabel: 'GitHub Profile',
+    isPublicRepo: false,
+    summary:
+      'Expected Time to Definitive Care (ETDC) emergency routing platform for Nigeria that directs patients to hospitals verified to treat their specific clinical emergency—not merely the nearest facility—with 5-language PWA support.',
+    metrics: [
+      { value: 'F0–F4', label: 'Never-empty clinical fallback ladder' },
+      { value: '5 Langs', label: 'EN · Pidgin · Yoruba · Hausa · Igbo' },
+      { value: '3-Tier', label: 'OSRM + Route Matrix + L1 Haversine' },
+    ],
+    tech: [
+      'TypeScript Monorepo',
+      'React 19 PWA',
+      'Node.js',
+      'Leaflet',
+      'OSRM',
+      'Google Route Matrix',
+      'Clinical Ontology',
+      'Vitest',
+      'fast-check',
+    ],
+    pipeline: [
+      { step: 'Triage', detail: 'Emergency Category & Modifiers' },
+      { step: 'Ontology', detail: 'Capability State & Freshness Check' },
+      { step: 'Travel', detail: 'OSRM + Circuit-Breaker Live Traffic' },
+      { step: 'ETDC', detail: 'Stabilize-First & F0–F4 Ladder' },
+      { step: 'Dispatch', detail: 'Capacity Lease & Maps Handoff' },
+    ],
+    problem:
+      'Routing trauma, obstetric, or cardiac patients to the geographically nearest clinic often costs critical survival minutes when that facility lacks blood bank stock, surgical capability, or working oxygen.',
+    highlights: [
+      'Implemented POST /v2/routing/evaluate computing Expected Time to Definitive Care (ETDC) over a versioned, digested clinical capability ontology—complete with stabilize-first routing, multi-patient load distribution, capacity leases, and idempotent retries.',
+      'Architected resilient travel-time resolution: self-hosted OSRM over the Nigeria OpenStreetMap extract as baseline, two-phase Google Route Matrix live-traffic refinement with circuit breaking and hysteresis, and explicit L1 Haversine straight-line fallback when offline.',
+      'Rebuilt the mobile-first React 19 + Leaflet Citizen PWA with real-time capability filtering, GPS tracking, offline client fallback, and full localization in English, Pidgin, Yoruba, Hausa, and Igbo.',
+    ],
+    verification:
+      'Golden clinical scenario suites, HTTP idempotency & adapter tests, and fast-check property-based tests proving non-emptiness, input-order determinism, hard-filter compliance, and capability monotonicity.',
+  },
+  {
+    id: 'abujastory',
+    number: '04',
+    title: 'Abuja Story',
+    tagline: '3D Real-Geography Browser Life Simulation & Anti-Automation Security Guard',
+    period: '2026',
+    categories: ['fullstack', 'systems'],
+    categoryLabels: ['Full-Stack & 3D Web', 'Security & Systems'],
+    accent: 'amber',
+    repoUrl: 'https://github.com/victobiloba/abjlife',
+    repoLabel: 'GitHub (abjlife)',
+    isPublicRepo: false,
+    summary:
+      'Browser-played 3D Sims-style life game built atop real OpenStreetMap Abuja roads, landmarks, and Aso Rock terrain—protected by a custom Proof-of-Work and ephemeral in-memory request-signing anti-bot engine.',
+    metrics: [
+      { value: 'Real OSM', label: 'Procedural 3D city & street routing' },
+      { value: 'PoW + Key', label: 'Handshake & memory-only API signing' },
+      { value: 'WebGL', label: 'Single persistent Three.js canvas' },
+    ],
+    tech: [
+      'Next.js 16',
+      'React 19',
+      'Three.js',
+      'TypeScript',
+      'Zustand',
+      'Firebase Admin',
+      'Python (OSM & DSP)',
+      'Bundle Obfuscation',
+    ],
+    pipeline: [
+      { step: 'Cartography', detail: 'Python OSM Map & Road Graph' },
+      { step: 'Render', detail: 'Persistent Three.js 3D City & Sims' },
+      { step: 'Guard', detail: 'PoW Handshake + Headless Checks' },
+      { step: 'Sign', detail: 'In-Memory Ephemeral Key Signatures' },
+      { step: 'Social', detail: 'E2E Encrypted Chat, Ventures & Radio' },
+    ],
+    problem:
+      'Browser multiplayer economies are quickly overrun by headless scrapers, cURL cookie-replay scripts, and synthetic DOM click bots while struggling to keep 3D urban worlds authentic and performant.',
+    highlights: [
+      'Built a Python cartography pipeline (build-abuja-map.py) transforming OpenStreetMap Abuja roads, waterways, parks, and Aso Rock into procedural 3D streets and landmarks, routing in-game rides across the real road network (roadGraph.ts) alongside a Python-synthesized theme score.',
+      'Engineered a multi-layer anti-automation system (lib/guard/): /api/handshake requires a Proof-of-Work challenge and probes for WebDriver/DevTools automation flags, issuing a signing key held exclusively in page memory so copied cookies fail in curl.',
+      'Implemented synthetic DOM event rejection, per-IP/browser/account rate limiting, end-to-end message encryption, multiplayer Ayo stakes, elections, ventures, and an in-game DJ/radio audio engine.',
+    ],
+    verification:
+      'TypeScript strict compilation, Firestore rule isolation, automated build-time client bundle obfuscation (obfuscate-build.mjs), and adversarial cURL/headless replay testing.',
+  },
+  {
+    id: 'netshare',
+    number: '05',
+    title: 'NetShare LAN',
+    tagline: 'Defense-in-Depth Subnet-Isolated File Sharing & HTTP 206 Media Streaming',
+    period: '2026',
+    categories: ['systems'],
+    categoryLabels: ['Network & Backend Infra'],
+    accent: 'cyan',
+    repoUrl: 'https://github.com/victobiloba',
+    repoLabel: 'GitHub Profile',
+    isPublicRepo: false,
+    summary:
+      'Zero-WAN multi-user intranet file sharing and media streaming infrastructure enforcing physical same-subnet isolation across both Nginx CIDR perimeters and dynamic FastAPI host-NIC introspection.',
+    metrics: [
+      { value: '2-Layer', label: 'Nginx CIDR + NIC subnet enforcement' },
+      { value: '5 MB', label: 'Chunked multi-GB SHA-256 uploads' },
+      { value: 'HTTP 206', label: 'Byte-range video/audio streaming' },
+    ],
+    tech: [
+      'Python',
+      'FastAPI',
+      'Nginx',
+      'WebSockets',
+      'SQLite (WAL)',
+      'psutil',
+      'Cryptography',
+      'Docker Compose',
+      'Pytest',
+    ],
+    pipeline: [
+      { step: 'Perimeter', detail: 'Nginx RFC1918 CIDR Filter (403 WAN)' },
+      { step: 'Middleware', detail: 'psutil Dynamic Host Subnet Guard' },
+      { step: 'Upload', detail: '5 MB Chunked Stream + SHA-256 Verify' },
+      { step: 'Stream', detail: 'HTTP 206 Range Media & QR Share' },
+      { step: 'Sync', detail: 'WebSocket Live LAN Peer Presence' },
+    ],
+    problem:
+      'Organizations and campus labs frequently need high-speed multi-gigabyte file transfer and media streaming over local Wi-Fi/Ethernet with a cryptographic and network guarantee that zero bytes can leak over the WAN.',
+    highlights: [
+      'Designed a two-tier network isolation perimeter: Layer 1 blocks all non-RFC1918 traffic at the Nginx reverse proxy, while Layer 2 (network_guard.py) dynamically inspects active host NICs and subnet masks to enforce STRICT_SAME_SUBNET access and audit-log blocked attempts.',
+      'Built a resumable 5 MB chunked upload pipeline supporting multi-gigabyte archives with end-to-end SHA-256 digest verification and concurrent SQLite WAL metadata persistence.',
+      'Implemented RFC-compliant HTTP 206 Partial Content byte-range streaming for instant video/audio scrubbing alongside real-time WebSocket LAN peer discovery and QR mobile onboarding.',
+    ],
+    verification:
+      '4-suite pytest test harness (test_network_guard, test_files, test_auth, test_api_integration) validating WAN IP rejection, chunk reassembly, SHA-256 mismatch handling, and byte-range streaming.',
+  },
+  {
+    id: 'codebasedna',
+    number: '06',
+    title: 'Codebase DNA',
+    tagline: 'Interactive GitHub Repository Organism & Static Dead-Code Visualizer',
+    period: '2026',
+    categories: ['ai', 'systems'],
+    categoryLabels: ['Developer Tooling', 'Static Analysis'],
+    accent: 'violet',
+    repoUrl: 'https://github.com/victobiloba',
+    repoLabel: 'GitHub Profile',
+    isPublicRepo: false,
+    summary:
+      'Zero-dependency static dependency analyzer and physics-driven HTML5 Canvas engine that sequences any GitHub repository into a living organism—exposing architectural coupling hotspots and dead code in seconds.',
+    metrics: [
+      { value: '15+ Langs', label: 'Polyglot import & module taxonomy' },
+      { value: '0 Deps', label: 'Pure ES Modules + Node HTTP core' },
+      { value: 'Canvas 2D', label: 'Interactive organ/vein/scar physics' },
+    ],
+    tech: [
+      'JavaScript (ES2024)',
+      'HTML5 Canvas',
+      'Static AST/Regex Analysis',
+      'GitHub REST API',
+      'Node.js Core HTTP',
+      'node:test',
+    ],
+    pipeline: [
+      { step: 'Fetch', detail: 'GitHub Repo Tree & Source Blobs' },
+      { step: 'Parse', detail: '15-Language Import & Stdlib Filter' },
+      { step: 'Filter', detail: 'Next/Nuxt/Django Entry Heuristics' },
+      { step: 'Sequence', detail: 'Organs, Cells, Veins, Stress & Scars' },
+      { step: 'Export', detail: 'Interactive Canvas + MD Health Report' },
+    ],
+    problem:
+      'Onboarding onto unfamiliar repositories requires mentally reconstructing module boundaries, high-risk coupling bottlenecks, and orphaned files from flat directory trees.',
+    highlights: [
+      'Engineered a client-side genome builder (genome.js) mapping top-level directories to organs, byte-weighted files across 15+ languages to cells, internal imports to veins, high fan-in modules to stress hotspots, and unimported code files to scar tissue.',
+      'Crafted framework-aware entrypoint heuristics covering Next.js/Nuxt/SvelteKit App Router conventions, Django/Celery autodiscovery, and test/config runners—paired with per-language Node.js and Python stdlib dictionaries—to prevent false-positive dead-code flags.',
+      'Added one-click Markdown architectural health reports, shareable repo deep-links, high-DPI PNG snapshot export, and optional GitHub token rate-limit elevation.',
+    ],
+    verification:
+      'Zero-dependency Node.js test suite (genome.test.js) verifying cross-language import graph extraction, stdlib collision handling (e.g., uuid/glob), and dead-code scar classification.',
+  },
+  {
+    id: 'herdsense',
+    number: '07',
+    title: 'HerdSense',
+    tagline: 'Edge-ML Wearable Biosensing Firmware, Offline Flash Sync & Cloud Telemetry',
+    period: 'Mar 2026 – Aug 2026',
+    categories: ['systems'],
+    categoryLabels: ['Embedded & Cloud IoT'],
+    accent: 'teal',
+    repoUrl: 'https://github.com/victobiloba/HerdSense',
+    repoLabel: 'github.com/victobiloba/HerdSense',
+    isPublicRepo: true,
+    summary:
+      'Open-source ESP32-S3 wearable physiological monitoring system combining 4-task FreeRTOS firmware, on-device C++ DFT spectral extraction, 3-day offline LittleFS buffering, and a Firebase web dashboard with Telegram alerts.',
+    metrics: [
+      { value: '25 Hz', label: 'Mutex-guarded FreeRTOS IMU + PPG' },
+      { value: '3 Days', label: 'Offline LittleFS flash ring buffer' },
+      { value: 'IEEE ’26', label: 'First-author NIGERCON publication' },
+    ],
+    tech: [
+      'C / C++',
+      'ESP32-S3',
+      'FreeRTOS',
+      'LittleFS',
+      'Firebase RTDB',
+      'JavaScript Dashboard',
+      'Telegram Bot Alerts',
+      'EasyEDA PCB',
+    ],
+    pipeline: [
+      { step: 'Sense', detail: 'PPG + IR + 25Hz IMU + ToF Gate' },
+      { step: 'RTOS', detail: '4 Tasks & 3 Mutexes on Dual I²C' },
+      { step: 'Edge DSP', detail: 'On-Device C++ DFT Spectral Bins' },
+      { step: 'Buffer', detail: '3 MB LittleFS Flash + Epoch Persist' },
+      { step: 'Cloud', detail: 'Firebase Bulk Sync, CSV & Telegram' },
+    ],
+    problem:
+      'Continuous physiological telemetry in rural, connectivity-starved environments fails when motion artifacts corrupt readings, network dropouts lose days of biosignals, or heap fragmentation crashes unattended devices.',
+    highlights: [
+      'Wrote 4-task watchdog-supervised FreeRTOS firmware on ESP32-S3 with 3 mutexes guarding a dual I²C bus, using VL53L0X Time-of-Flight ranging (<80 mm) as a physical skin-contact gate before logging MLX90614 thermal data.',
+      'Eliminated sustained-load heap corruption by replacing dynamic std::vector<String> upload buffers with fixed stack allocations, fixed an integer-division bug zeroing C++ DFT spectral bins, and persisted epoch time in LittleFS to survive brownouts offline.',
+      'Built a real-time Firebase web dashboard with 1-hour/24-hour views, date-range filtering, CSV export, and automated Telegram physiological threshold alerts, alongside a DRC-clean EasyEDA PCB and 3D-printed PETG enclosure.',
+    ],
+    verification:
+      'Longitudinal hardware/firmware stress testing, DRC-clean Gerber verification, and peer-reviewed conference paper conditionally accepted at 2026 IEEE NIGERCON.',
+  },
+];
+
+export const SKILL_GROUPS = [
+  {
+    title: 'Languages & Runtime Foundations',
+    icon: 'code',
+    items: ['TypeScript', 'Python 3.11+', 'JavaScript (ES2024+)', 'C / C++', 'SQL', 'HTML5 / CSS3'],
+    provenIn: 'ThesisBridge, MedRoute, NetShare LAN, HerdSense',
+  },
+  {
+    title: 'Frontend, 3D & Interactive Web',
+    icon: 'layers',
+    items: ['React 18 & 19', 'Next.js 16', 'Three.js (WebGL)', 'HTML5 Canvas', 'Tailwind CSS', 'Zustand', 'Leaflet PWA'],
+    provenIn: 'Abuja Story, MedRoute, ThesisBridge, Codebase DNA',
+  },
+  {
+    title: 'Backend, Fintech & Network Infra',
+    icon: 'server',
+    items: ['FastAPI (ASGI)', 'Node.js & Express', 'Square Payments SDK', 'Nginx CIDR Proxy', 'WebSockets', 'HTTP 206 Streaming'],
+    provenIn: 'Farm Pay, NetShare LAN, ThesisBridge, MedRoute',
+  },
+  {
+    title: 'Applied AI, Search & Geospatial',
+    icon: 'spark',
+    items: ['Gemini Embeddings & Flash', 'Claude API', 'OpenAlex & ROR v2', 'PyMuPDF4LLM', 'OSRM & Route Matrix', 'Pandas / NumPy'],
+    provenIn: 'ThesisBridge, MedRoute, Freelance Automation',
+  },
+  {
+    title: 'Security, Persistence & Edge Systems',
+    icon: 'shield',
+    items: ['OAuth 2.0 PKCE & JWT', 'AES-256-GCM', 'PoW & Request Signing', 'Cloud Firestore & SQLite WAL', 'ESP32-S3 & FreeRTOS', 'Vitest / fast-check / Pytest'],
+    provenIn: 'Abuja Story, ThesisBridge, MedRoute, HerdSense',
+  },
+];
+
+export const EXPERIENCE = [
+  {
+    role: 'Open-Source Contributor',
+    org: 'sciencecorp/synapse-python · Science Corp',
+    period: 'Oct 2026',
+    stack: 'Python · gRPC Simulator · BCI Device Client',
+    points: [
+      'Diagnosed and patched a SpikeSource simulator startup crash in Science Corp’s Python BCI device client (synapse-python).',
+    ],
+  },
+  {
+    role: 'Freelance Software Automation Engineer',
+    org: 'Independent Contract · Remote, Nigeria',
+    period: 'Sep 2024 – Feb 2025',
+    stack: 'Python · Selenium WebDriver · Pandas · NumPy',
+    points: [
+      'Architected and deployed an end-to-end browser automation system handling authenticated session lifecycles, dynamic DOM synchronization, and resilient structured extraction.',
+      'Built automated validation and cleaning pipelines with Pandas and NumPy, owning requirements, testing, and production delivery across a fixed-term client contract.',
+    ],
+  },
+];
+
+export const CREDENTIALS = [
+  {
+    badge: 'Education',
+    title: 'B.Eng. Computer Engineering — Second Class Upper',
+    meta: 'Federal University of Technology Akure (FUTA) · Oct 2020 – Expected Nov 2026',
+    detail: 'Core focus: Data Structures & Algorithms, Computer Networks, Embedded Systems, Digital Signal Processing, Digital Systems Design.',
+  },
+  {
+    badge: 'IEEE Paper',
+    title: 'First-Author Publication — 2026 IEEE NIGERCON',
+    meta: 'Lagos, Nigeria · November 2026 (Conditionally accepted)',
+    detail: 'Ogundipe, V.O., & Adedokun, A. “Development of an IoT-based Wearable Device for Real-Time Health and Activities Monitoring of Native Fulani Cattle.”',
+  },
+  {
+    badge: 'ML Training',
+    title: 'Applied Machine Learning Fellow — AI Federax',
+    meta: '2024 – 2025 · Year-long programme',
+    detail: 'Year-long Applied Machine Learning programme at AI Federax.',
+  },
+];

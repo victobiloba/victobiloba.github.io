@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en" data-view="portfolio">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- MANDATORY: Declare light/dark support and prevent FOUC synchronously -->
+  <meta name="color-scheme" content="light dark" />
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>Victor Oluwatobiloba Ogundipe — Full-Stack &amp; AI Systems Engineer</title>
+  <meta name="description" content="Software Engineering Portfolio and Curriculum Vitae of Victor Oluwatobiloba Ogundipe — Full-Stack & AI Systems Engineer building grounded LLM platforms, fintech payment terminals, emergency routing engines, and edge-to-cloud systems." />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f5f1" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Victor Oluwatobiloba Ogundipe — Software Engineer" />
+  <meta property="og:description" content="Full-Stack & AI Systems Software Engineer · ThesisBridge · Farm Pay · MedRoute · Abuja Story · NetShare LAN · Codebase DNA · HerdSense" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23111110'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-monospace,monospace' font-weight='700' font-size='24' fill='%23f3f2ee'>VO</text><circle cx='51' cy='13' r='5' fill='%23ff7a45'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- MANDATORY: Decorative visual scroll progress bar hidden from assistive tech -->
+  <div id="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="#top" id="brand-home">
+        <span class="monogram" aria-hidden="true">VO</span>
+        <span class="brand-text">
+          <span class="brand-name">Victor Ogundipe</span>
+          <span class="brand-sub">Software Engineer</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#projects" data-nav="projects">Work</a>
+        <a href="#skills" data-nav="skills">Stack</a>
+        <a href="#experience" data-nav="experience">Experience</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="search-btn" id="palette-open" aria-label="Open command palette" aria-keyshortcuts="Control+K Meta+K">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" stroke-linecap="round" />
+          </svg>
+          <span class="search-label" aria-hidden="true">Search</span>
+          <kbd class="search-kbd" data-mod-key aria-hidden="true">Ctrl K</kbd>
+        </button>
+
+        <div class="view-switch" role="tablist" aria-label="Primary view mode">
+          <button type="button" class="view-tab" role="tab" id="tab-portfolio" aria-selected="true" aria-controls="portfolio-view">Portfolio</button>
+          <button type="button" class="view-tab" role="tab" id="tab-cv" aria-selected="false" aria-controls="cv-view" tabindex="-1">CV</button>
+        </div>
+
+        <button type="button" class="icon-btn" id="theme-toggle">
+          <span class="theme-action-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="sr-only">Switch to dark theme</span>
+          </span>
+          <span class="theme-action-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41" stroke-linecap="round" />
+            </svg>
+            <span class="sr-only">Switch to light theme</span>
+          </span>
+        </button>
+
+        <a class="btn btn-primary btn-sm nav-cta" href="./Victor_Ogundipe_SWE_CV.pdf?download=1" download="Victor_Ogundipe_SWE_CV.pdf" aria-label="Download CV (PDF)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="nav-cta-label" aria-hidden="true">Résumé</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ====================================================================
+         VIEW 1: INTERACTIVE ENGINEERING PORTFOLIO
+         ==================================================================== -->
+    <div id="portfolio-view" role="tabpanel" aria-labelledby="tab-portfolio">
+      <canvas class="dot-field" id="dot-field" aria-hidden="true"></canvas>
+      <div class="container" id="top">
+        <section class="hero" aria-labelledby="portfolio-heading">
+          <div class="hero-copy">
+            <p class="status-pill hero-in">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Open to Full-Stack, Backend &amp; AI Systems roles · Remote / Relocation</span>
+            </p>
+
+            <h1 id="portfolio-heading" class="hero-title hero-in" tabindex="-1">
+              I engineer <em>grounded AI platforms</em>, <span class="nowrap">high-trust</span> payment flows &amp; resilient systems.
+            </h1>
+
+            <p class="hero-lede hero-in">
+              I’m <strong>Victor Oluwatobiloba Ogundipe</strong>, a software engineer finishing a B.Eng. in Computer Engineering at FUTA. I build systems end to end: from a 250M-work academic intelligence engine and Square card-on-file terminals to capability-based emergency medical routing and bare-metal FreeRTOS telemetry.
+            </p>
+
+            <div class="hero-cta hero-in">
+              <a class="btn btn-primary btn-lg" href="#projects">
+                <span>See selected work</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+              <button type="button" class="btn btn-lg" id="hero-open-cv">Read my CV</button>
+              <div class="social">
+                <a class="icon-btn" href="https://github.com/victobiloba" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (@victobiloba)">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                </a>
+                <a class="icon-btn" href="https://linkedin.com/in/victobiloba" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <figure class="terminal hero-in" aria-labelledby="term-caption">
+            <div class="term-bar" aria-hidden="true">
+              <span class="term-dots"><i></i><i></i><i></i></span>
+              <span class="term-title">victor@ibadan: ~</span>
+              <span class="term-clock" data-local-time>UTC+1</span>
+            </div>
+            <figcaption id="term-caption" class="sr-only">Profile summary: role, core stack and current status</figcaption>
+            <div class="term-body" id="term-body">
+              <div class="term-log" id="term-log" role="log" aria-label="Terminal output">
+              <p class="term-cmd"><span class="prompt" aria-hidden="true">❯</span> whoami</p>
+              <p class="term-out">Victor Ogundipe <span class="term-dim">— Full-Stack &amp; AI Systems Engineer</span></p>
+              <p class="term-cmd"><span class="prompt" aria-hidden="true">❯</span> cat stack.yml</p>
+              <dl class="term-out term-kv">
+                <div><dt>interface</dt><dd>React 19 · Next.js 16 · Three.js</dd></div>
+                <div><dt>ai</dt><dd>Gemini · Claude · OpenAlex · OSRM</dd></div>
+                <div><dt>backend</dt><dd>FastAPI · Express · Square API</dd></div>
+                <div><dt>embedded</dt><dd>ESP32-S3 · FreeRTOS · fast-check</dd></div>
+              </dl>
+              <p class="term-cmd"><span class="prompt" aria-hidden="true">❯</span> ./status --now</p>
+              <p class="term-out"><span class="term-ok" aria-hidden="true">●</span> Shipping ThesisBridge · open to new roles</p>
+              <p class="term-cmd term-static-caret" aria-hidden="true"><span class="prompt">❯</span> <span class="caret"></span></p>
+              </div>
+              <form class="term-input-row" id="term-form" hidden>
+                <label class="prompt" for="term-input" aria-hidden="true">❯</label>
+                <input class="term-input" id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" aria-label="Terminal command. Type help to list commands." placeholder="type help, or tap a command below" />
+              </form>
+            </div>
+            <div class="term-suggest" id="term-suggest" role="group" aria-label="Suggested terminal commands" hidden>
+              <button type="button" data-cmd="help">help</button>
+              <button type="button" data-cmd="projects">projects</button>
+              <button type="button" data-cmd="neofetch">neofetch</button>
+              <button type="button" data-cmd="contact">contact</button>
+              <button type="button" data-cmd="sudo hire victor">sudo hire victor</button>
+            </div>
+          </figure>
+        </section>
+
+        <ul class="stats hero-in" aria-label="Key engineering highlights">
+          <li><strong data-count-to="7">7</strong><span>End-to-end systems shipped across web, AI &amp; edge</span></li>
+          <li><strong data-count-to="250" data-suffix="M+">250M+</strong><span>OpenAlex works indexed in ThesisBridge</span></li>
+          <li><strong data-count-to="15" data-suffix="+">15+</strong><span>Languages parsed by the Codebase DNA static analyzer</span></li>
+          <li><strong data-scramble>IEEE ’26</strong><span>First-author systems paper on HerdSense firmware</span></li>
+        </ul>
+
+        <!-- SELECTED PROJECTS -->
+        <section class="section" id="projects" aria-labelledby="projects-heading">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-num">01</span><span class="eyebrow-text" data-scramble>Selected work</span></p>
+              <h2 class="section-title" id="projects-heading">Production platforms <em>&amp; systems</em></h2>
+              <p class="section-desc">
+                Open any project to see its architecture pipeline, the failure modes it solves, and how it is verified.
+              </p>
+            </div>
+
+            <div class="filter-bar" role="group" aria-label="Filter projects by engineering domain">
+              <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">
+                All <span class="chip-count" data-count="all">7</span>
+              </button>
+              <button type="button" class="filter-chip" data-filter="fullstack" aria-pressed="false">
+                Full-stack &amp; fintech <span class="chip-count" data-count="fullstack">4</span>
+              </button>
+              <button type="button" class="filter-chip" data-filter="ai" aria-pressed="false">
+                AI, search &amp; geospatial <span class="chip-count" data-count="ai">3</span>
+              </button>
+              <button type="button" class="filter-chip" data-filter="systems" aria-pressed="false">
+                Infra, security &amp; edge <span class="chip-count" data-count="systems">4</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="projects-grid" id="projects-grid">
+            <noscript>
+              <p>Enable JavaScript for interactive architecture case-study modals, or <a href="./cv.html">open the full standalone Curriculum Vitae</a>.</p>
+            </noscript>
+          </div>
+        </section>
+
+        <!-- SKILLS & PROVENANCE MATRIX -->
+        <section class="section" id="skills" aria-labelledby="skills-heading">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-num">02</span><span class="eyebrow-text" data-scramble>Capabilities</span></p>
+              <h2 class="section-title" id="skills-heading">A stack proven in <em>shipped code</em></h2>
+              <p class="section-desc">
+                Every tool listed here is backed by shipped repositories and automated test suites across my projects.
+              </p>
+            </div>
+          </div>
+          <div class="skills-grid" id="skills-matrix"></div>
+        </section>
+
+        <!-- EXPERIENCE & CREDENTIALS -->
+        <section class="section" id="experience" aria-labelledby="exp-heading">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-num">03</span><span class="eyebrow-text" data-scramble>Experience</span></p>
+              <h2 class="section-title" id="exp-heading">Where I’ve worked <em>&amp; learned</em></h2>
+            </div>
+          </div>
+
+          <div class="exp-grid">
+            <div>
+              <h3 class="col-title">Industry &amp; open source</h3>
+              <ol class="timeline" id="experience-timeline"></ol>
+            </div>
+            <div>
+              <h3 class="col-title">Education &amp; research</h3>
+              <ul class="cred-list" id="credentials-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT CALLOUT -->
+        <section class="section contact" id="contact" aria-labelledby="contact-heading">
+          <p class="eyebrow"><span class="eyebrow-num">04</span><span class="eyebrow-text" data-scramble>Contact</span></p>
+          <h2 class="contact-title" id="contact-heading">Let’s build software <em>that holds up.</em></h2>
+          <p class="contact-desc">
+            Available for Full-Stack, Backend, Applied AI and Systems Software Engineering roles, remote or with relocation. Reach out directly or grab a copy of my ATS-ready CV.
+          </p>
+
+          <div class="contact-email-row">
+            <a class="contact-email" href="mailto:ogundipe.victobiloba@gmail.com">ogundipe.victobiloba@gmail.com</a>
+            <button type="button" class="btn btn-sm" id="copy-email-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" />
+                <path d="M5 15V6a2 2 0 0 1 2-2h9" stroke-linecap="round" />
+              </svg>
+              <span class="copy-label">Copy email</span>
+            </button>
+          </div>
+          <p class="copy-feedback" id="copy-status" role="status" aria-live="polite"></p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-lg" href="mailto:ogundipe.victobiloba@gmail.com">
+              <span>Email Victor</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="btn btn-lg" href="./Victor_Ogundipe_SWE_CV.pdf?download=1" download="Victor_Ogundipe_SWE_CV.pdf">Download CV (PDF)</a>
+            <a class="btn btn-lg" href="https://linkedin.com/in/victobiloba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-lg" href="https://github.com/victobiloba" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+
+          <dl class="contact-meta">
+            <div><dt>Based in</dt><dd>Ibadan, Nigeria</dd></div>
+            <div><dt>Local time</dt><dd><span data-local-time>UTC+1</span></dd></div>
+            <div><dt>Open to</dt><dd>Remote · Relocation</dd></div>
+          </dl>
+        </section>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 2: EMBEDDED INTERACTIVE CURRICULUM VITAE
+         ==================================================================== -->
+    <div id="cv-view" class="cv-view-wrap" role="tabpanel" aria-labelledby="tab-cv" hidden>
+      <div class="container">
+        <div class="cv-controls-bar">
+          <div class="cv-controls-group">
+            <button type="button" class="btn btn-sm" id="cv-back-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M19 12H5m6 6-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Back to portfolio
+            </button>
+            <button type="button" class="btn btn-sm" id="cv-concise-toggle" aria-pressed="false">
+              Switch to 1-page concise mode
+            </button>
+          </div>
+          <div class="cv-controls-group">
+            <a class="btn btn-sm" href="./cv.html" target="_blank" rel="noopener">Open print sheet</a>
+            <a class="btn btn-primary btn-sm" href="./Victor_Ogundipe_SWE_CV.pdf?download=1" download="Victor_Ogundipe_SWE_CV.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Download PDF (2 pages)
+            </a>
+          </div>
+        </div>
+
+        <article class="cv-paper" id="embedded-cv-paper" aria-labelledby="cv-view-heading">
+          <header class="cv-paper-header">
+            <h1 id="cv-view-heading" tabindex="-1">VICTOR OLUWATOBILOBA OGUNDIPE</h1>
+            <p class="cv-paper-role">Full-Stack &amp; AI Systems Software Engineer</p>
+            <div class="cv-paper-contacts">
+              <span>Ibadan, Oyo State, Nigeria (Remote &amp; Relocation Ready)</span>
+              <a href="mailto:ogundipe.victobiloba@gmail.com">ogundipe.victobiloba@gmail.com</a>
+              <a href="tel:+2347043090092">+234 704 309 0092</a>
+              <a href="https://github.com/victobiloba" target="_blank" rel="noopener noreferrer">github.com/victobiloba</a>
+              <a href="https://linkedin.com/in/victobiloba" target="_blank" rel="noopener noreferrer">linkedin.com/in/victobiloba</a>
+            </div>
+          </header>
+
+          <section class="cv-sec">
+            <h2>Professional Summary</h2>
+            <p class="cv-summary">
+              Full-Stack &amp; AI Systems Engineer (B.Eng. Computer Engineering) experienced in architecting end-to-end web platforms, evidence-grounded LLM &amp; scholarly-graph pipelines, fintech/commerce payment workflows, and fault-tolerant network and edge systems. Proven track record shipping TypeScript/React, Python/FastAPI, Node.js/Express, and C++/FreeRTOS software with rigorous security guards and automated verification.
+            </p>
+          </section>
+
+          <section class="cv-sec">
+            <h2>Technical Skills</h2>
+            <div class="cv-skills">
+              <div><strong>Languages:</strong> TypeScript, Python, JavaScript (ES2024+), C / C++, SQL, HTML5, CSS3</div>
+              <div><strong>Frontend &amp; Graphics:</strong> React 18/19, Next.js 16, Vite, Tailwind CSS, Three.js (WebGL), HTML5 Canvas, Zustand, Leaflet, Progressive Web Apps (PWA)</div>
+              <div><strong>Backend, APIs &amp; Payments:</strong> FastAPI (ASGI), Node.js, Express, Square API (Web Payments SDK, Card Auth/Capture/Void), REST APIs, WebSockets, OAuth 2.0 (PKCE), JWT (HS256)</div>
+              <div><strong>AI, Data &amp; Geospatial:</strong> Gemini API (768-dim Embeddings &amp; Flash), Claude API, OpenAlex &amp; ROR v2 APIs, PyMuPDF4LLM, OSRM, Google Route Matrix, Pandas, NumPy, Scikit-learn, Selenium</div>
+              <div><strong>Data Stores, Infra &amp; Security:</strong> Cloud Firestore, Firebase RTDB, SQLite (WAL), Cloudinary, Nginx (CIDR Perimeter / Reverse Proxy), Docker Compose, AES-256-GCM, Proof-of-Work &amp; Request Signing</div>
+              <div><strong>Embedded, Testing &amp; Tooling:</strong> ESP32-S3, FreeRTOS, I²C/SPI/UART, Vitest, fast-check (Property-Based Testing), Pytest, Node Test Runner, Git, GitHub Actions, Vercel, Render, Linux</div>
+            </div>
+          </section>
+
+          <section class="cv-sec">
+            <h2>Selected Software Engineering Projects</h2>
+            <div id="embedded-cv-projects"></div>
+          </section>
+
+          <section class="cv-sec">
+            <h2>Work Experience &amp; Open Source</h2>
+            <div id="embedded-cv-experience"></div>
+          </section>
+
+          <section class="cv-sec">
+            <h2>Education &amp; Publications</h2>
+            <div id="embedded-cv-credentials"></div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Victor Oluwatobiloba Ogundipe · Built by hand with modern web standards</span>
+      <div class="footer-links">
+        <a href="./cv.html">Printable CV</a>
+        <a href="./Victor_Ogundipe_SWE_CV.pdf?download=1" download="Victor_Ogundipe_SWE_CV.pdf">PDF résumé</a>
+        <a href="https://github.com/victobiloba" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/victobiloba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#top" class="to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       NATIVE MODAL <dialog> FOR ARCHITECTURE DEEP-DIVES
+       MANDATORY: No role="dialog" or aria-modal on native modal <dialog>
+       ==================================================================== -->
+  <dialog id="project-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="modal-header">
+      <div class="modal-heading">
+        <p class="modal-meta" id="dialog-meta"></p>
+        <h2 class="modal-title" id="dialog-title"></h2>
+        <p class="modal-tagline" id="dialog-tagline"></p>
+      </div>
+      <button type="button" class="icon-btn" id="dialog-close-btn" aria-label="Close project case study" autofocus>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-metrics" id="dialog-metrics"></div>
+
+      <div class="modal-block">
+        <h3>The problem</h3>
+        <p class="callout" id="dialog-problem"></p>
+      </div>
+
+      <div class="modal-block">
+        <div class="modal-block-head">
+          <h3>End-to-end architecture flow</h3>
+          <button type="button" class="btn btn-sm run-btn" id="dialog-run">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+            <span class="run-label">Simulate flow</span>
+          </button>
+        </div>
+        <ol class="stepper" id="dialog-pipeline"></ol>
+        <p class="run-status" id="dialog-run-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="modal-block">
+        <h3>Key architecture &amp; reliability decisions</h3>
+        <ol class="decisions" id="dialog-highlights"></ol>
+      </div>
+
+      <div class="modal-block">
+        <h3>Testing &amp; verification</h3>
+        <p class="callout callout-ok" id="dialog-verification"></p>
+      </div>
+
+      <div class="modal-block">
+        <h3>Technology stack</h3>
+        <ul class="tech-pills" id="dialog-tech"></ul>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="modal-links">
+        <a class="btn btn-sm" id="dialog-repo-link" href="https://github.com/victobiloba" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          <span id="dialog-repo-label">View on GitHub</span>
+        </a>
+        <a class="btn btn-sm btn-ghost" id="dialog-walkthrough" href="mailto:ogundipe.victobiloba@gmail.com">Request a walkthrough</a>
+      </div>
+      <div class="modal-nav">
+        <span class="modal-hint" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> browse</span>
+        <button type="button" class="icon-btn" id="dialog-prev" aria-label="Previous case study">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="dialog-next">
+          <span id="dialog-next-label">Next case study</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ====================================================================
+       COMMAND PALETTE (Ctrl/Cmd + K)
+       ==================================================================== -->
+  <dialog id="palette" class="palette" closedby="any" aria-labelledby="palette-title">
+    <h2 id="palette-title" class="sr-only">Command palette</h2>
+    <div class="palette-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" stroke-linecap="round" />
+      </svg>
+      <input id="palette-input" type="text" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Search projects, tech, sections or actions…" />
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="palette-list" id="palette-list" role="listbox" aria-label="Results"></ul>
+    <div class="palette-foot" aria-hidden="true">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> select</span>
+      <span class="palette-tip">Try “fastapi” or “payments”</span>
+    </div>
+  </dialog>
+
+  <!-- Exploration progress & achievement toasts -->
+  <button type="button" class="explorer" id="explorer-pill" hidden>
+    <svg class="explorer-ring" viewBox="0 0 36 36" aria-hidden="true">
+      <circle class="ring-track" cx="18" cy="18" r="15" />
+      <circle class="ring-fill" id="explorer-ring-fill" cx="18" cy="18" r="15" />
+    </svg>
+    <span class="explorer-text">
+      <span class="explorer-count" id="explorer-count">0/7 explored</span>
+      <span class="explorer-next" id="explorer-next">Start with ThesisBridge</span>
+    </span>
+  </button>
+  <div class="toasts" id="toasts" role="status" aria-live="polite" popover="manual"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
