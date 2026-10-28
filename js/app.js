@@ -19,9 +19,10 @@ const progress = createProgress({
      the site returns cleanly to "light dark" system tracking.
    - Never clears the stored value inside a matchMedia change listener.
    ========================================================================== */
+const DEFAULT_SCHEME = 'light'; // Solarized Light unless the visitor picks dark
 const schemeMeta = document.querySelector('meta[name="color-scheme"]');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const themeBtn = document.getElementById('theme-toggle');
-const darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
 
 function getStoredScheme() {
   try {
@@ -33,23 +34,27 @@ function getStoredScheme() {
 }
 
 function getRenderedScheme() {
-  return getStoredScheme() ?? (darkMedia.matches ? 'dark' : 'light');
+  return getStoredScheme() ?? DEFAULT_SCHEME;
+}
+
+function syncThemeColor() {
+  themeColorMeta?.setAttribute('content', getRenderedScheme() === 'dark' ? '#002b36' : '#fdf6e3');
 }
 
 function applySchemeMeta(storedValue) {
   if (schemeMeta) {
-    schemeMeta.content = storedValue ?? 'light dark';
+    schemeMeta.content = storedValue ?? DEFAULT_SCHEME;
   }
+  syncThemeColor();
 }
 
 function setTheme(requested) {
   const current = getRenderedScheme();
   const target = requested ?? (current === 'dark' ? 'light' : 'dark');
   if (target === current) return target;
-  const systemScheme = darkMedia.matches ? 'dark' : 'light';
 
   const apply = () => {
-    if (target === systemScheme) {
+    if (target === DEFAULT_SCHEME) {
       try {
         localStorage.removeItem('color-scheme');
       } catch {}
@@ -72,6 +77,7 @@ function setTheme(requested) {
 }
 
 themeBtn?.addEventListener('click', () => setTheme());
+syncThemeColor();
 
 window.addEventListener('storage', (event) => {
   if (event.key === 'color-scheme') {
@@ -172,15 +178,18 @@ function escapeHtml(str) {
     .replaceAll("'", '&#39;');
 }
 
-/* Decorative per-project tones (used for glows, dots and lines, never for text) */
+/* Decorative per-project tones from the Solarized blues (glows, dots and lines, never text) */
+const SOLAR_BLUE = '#268bd2';
+const SOLAR_CYAN = '#2aa198';
+const SOLAR_VIOLET = '#6c71c4';
 const TONES = {
-  indigo: '#6366f1',
-  emerald: '#10b981',
-  rose: '#f43f5e',
-  amber: '#f59e0b',
-  cyan: '#06b6d4',
-  violet: '#8b5cf6',
-  teal: '#14b8a6',
+  indigo: SOLAR_BLUE,
+  emerald: SOLAR_CYAN,
+  rose: SOLAR_VIOLET,
+  amber: SOLAR_BLUE,
+  cyan: SOLAR_CYAN,
+  violet: SOLAR_VIOLET,
+  teal: SOLAR_BLUE,
 };
 
 const ARROW_ICON =
@@ -198,6 +207,7 @@ const SKILL_ICONS = {
     '<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
   spark: '<path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9Z"/><path d="M19 17v4M17 19h4"/>',
   shield: '<path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/>',
+  bot: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 16.5h5"/>',
 };
 
 function skillIcon(name) {
@@ -308,6 +318,23 @@ function openLabel(proj) {
   return progress.explored.has(proj.id) ? 'Explored · read again' : 'Read case study';
 }
 
+function renderProjectLink(proj) {
+  if (proj.liveUrl) {
+    return `
+      <a class="repo-link is-live" href="${escapeHtml(proj.liveUrl)}" target="_blank" rel="noopener noreferrer">
+        <span>${escapeHtml(proj.liveLabel ?? proj.liveUrl)}</span>
+        <span class="repo-badge is-live"><span class="live-dot" aria-hidden="true"></span>Live</span>
+        ${EXTERNAL_ICON}
+      </a>`;
+  }
+  return `
+      <a class="repo-link" href="${escapeHtml(proj.repoUrl)}" target="_blank" rel="noopener noreferrer">
+        <span>${escapeHtml(proj.repoLabel)}</span>
+        ${repoBadge(proj)}
+        ${EXTERNAL_ICON}
+      </a>`;
+}
+
 function renderCardFooter(proj) {
   return `
     <div class="card-footer">
@@ -316,11 +343,7 @@ function renderCardFooter(proj) {
         <span><span class="open-label">${openLabel(proj)}</span><span class="sr-only">: ${escapeHtml(proj.title)}</span></span>
         ${ARROW_ICON}
       </button>
-      <a class="repo-link" href="${escapeHtml(proj.repoUrl)}" target="_blank" rel="noopener noreferrer">
-        <span>${escapeHtml(proj.repoLabel)}</span>
-        ${repoBadge(proj)}
-        ${EXTERNAL_ICON}
-      </a>
+      ${renderProjectLink(proj)}
     </div>`;
 }
 
@@ -467,16 +490,29 @@ function fillProjectModal(proj) {
   document.getElementById('dialog-verification').textContent = proj.verification;
   document.getElementById('dialog-tech').innerHTML = renderPills(proj.tech);
 
+  const liveLink = document.getElementById('dialog-live-link');
+  const liveLabel = document.getElementById('dialog-live-label');
+  if (liveLink && liveLabel) {
+    liveLink.hidden = !proj.liveUrl;
+    if (proj.liveUrl) {
+      liveLink.href = proj.liveUrl;
+      liveLabel.textContent = `Visit ${proj.liveLabel ?? 'live site'} ↗`;
+    }
+  }
+
   const repoLink = document.getElementById('dialog-repo-link');
   const repoLabel = document.getElementById('dialog-repo-label');
   if (repoLink && repoLabel) {
+    // A private repo link only 404s for visitors, so hide it when a live site exists
+    repoLink.hidden = Boolean(proj.liveUrl) && !proj.isPublicRepo;
     repoLink.href = proj.repoUrl;
-    repoLabel.textContent = proj.isPublicRepo ? `Open ${proj.repoLabel} ↗` : `${proj.repoLabel} ↗`;
+    repoLabel.textContent = proj.isPublicRepo ? 'View source on GitHub ↗' : `${proj.repoLabel} ↗`;
   }
 
   const walkthrough = document.getElementById('dialog-walkthrough');
   if (walkthrough) {
     walkthrough.hidden = proj.isPublicRepo;
+    walkthrough.textContent = proj.liveUrl ? 'Request a code walkthrough' : 'Request a walkthrough';
     walkthrough.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent(`Walkthrough request: ${proj.title}`)}`;
   }
 
@@ -563,6 +599,12 @@ function renderProvenIn(provenIn) {
     .join('');
 }
 
+function timelineCaseLink(entry) {
+  const proj = entry.projectId && PROJECTS.find((p) => p.id === entry.projectId);
+  if (!proj) return '';
+  return `<button type="button" class="timeline-link" data-open-project="${escapeHtml(proj.id)}" aria-haspopup="dialog">Read the ${escapeHtml(proj.title)} case study ${ARROW_ICON}</button>`;
+}
+
 function renderStaticSections() {
   const skillsEl = document.getElementById('skills-matrix');
   if (skillsEl) {
@@ -594,6 +636,7 @@ function renderStaticSections() {
         <ul class="timeline-points">
           ${e.points.map((pt) => `<li>${escapeHtml(pt)}</li>`).join('')}
         </ul>
+        ${timelineCaseLink(e)}
       </li>`,
     ).join('');
   }
@@ -946,7 +989,16 @@ function paletteItems() {
       run: () => focusTerminal('achievements'),
     },
   ].map((a) => ({ group: 'Actions', order: order++, ...a }));
-  return [...projectItems, ...sections, ...actionsList];
+  const liveItems = PROJECTS.filter((p) => p.liveUrl || p.isPublicRepo).map((p) => ({
+    group: 'Live demos & open source',
+    order: order++,
+    icon: p.liveUrl ? '●' : '⌥',
+    label: p.liveUrl ? `Visit ${p.title} live` : `View ${p.title} source`,
+    hint: p.liveUrl ? p.liveLabel : 'GitHub',
+    keywords: `${p.title} live demo site open source code repo github ${p.liveLabel ?? ''}`,
+    run: () => window.open(p.liveUrl ?? p.repoUrl, '_blank', 'noopener'),
+  }));
+  return [...projectItems, ...liveItems, ...sections, ...actionsList];
 }
 
 initPalette({

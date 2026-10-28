@@ -42,7 +42,7 @@ export function confetti({ x = window.innerWidth / 2, y = window.innerHeight * 0
   const ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
 
-  const colors = [resolveColor('--accent'), '#f59e0b', '#10b981', '#6366f1', '#f43f5e', '#06b6d4', '#8b5cf6'];
+  const colors = [resolveColor('--accent'), '#268bd2', '#2aa198', '#6c71c4', '#5eaee6', '#859900', '#93a1a1'];
   const parts = Array.from({ length: count }, () => {
     const angle = Math.random() * Math.PI * 2;
     const speed = 4 + Math.random() * 9;
@@ -341,12 +341,12 @@ export function matrixRain(container, duration = 4500) {
     const t = now - start;
     if (now - last > 45) {
       last = now;
-      ctx.fillStyle = 'rgba(14, 14, 16, 0.18)';
+      ctx.fillStyle = 'rgba(0, 43, 54, 0.2)';
       ctx.fillRect(0, 0, width, height);
       ctx.font = `${size}px "Geist Mono", monospace`;
       drops.forEach((d, i) => {
         const ch = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillStyle = Math.random() > 0.96 ? '#e8ffe8' : '#4ade80';
+        ctx.fillStyle = Math.random() > 0.96 ? '#fdf6e3' : '#2aa198';
         ctx.fillText(ch, i * size, d * size);
         drops[i] = d * size > height && Math.random() > 0.97 ? 0 : d + 1;
       });

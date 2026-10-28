@@ -107,7 +107,7 @@ export function initTerminal({ root, data, actions, progress }) {
   /* ---------- command implementations ---------- */
   const show = {
     about() {
-      print(`I’m <strong>${esc(PROFILE.name)}</strong>, a software engineer based in ${key('Ibadan, Nigeria')}.`);
+      print(`I am <strong>${esc(PROFILE.name)}</strong>, a software engineer based in ${key('Ibadan, Nigeria')}.`);
       print('I build systems end to end: grounded AI platforms, high-trust payment flows, emergency routing engines and FreeRTOS firmware.');
       print(`${ok('●')} Open to Full-Stack, Backend &amp; AI Systems roles · remote or relocation`);
     },
@@ -172,6 +172,20 @@ export function initTerminal({ root, data, actions, progress }) {
         later(320, () => actions.openProject(proj.id));
       },
     },
+    demos: {
+      desc: 'live demos & open-source code',
+      run() {
+        const rows = PROJECTS.filter((p) => p.liveUrl || p.isPublicRepo)
+          .map((p) => {
+            const href = p.liveUrl ?? p.repoUrl;
+            const label = p.liveUrl ? `${p.liveLabel} ↗` : 'source on GitHub ↗';
+            return `${dim(esc(p.number))}${projectLink(p)}<a class="term-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+          })
+          .join('');
+        print(`<div class="term-grid term-grid-3">${rows}</div>`);
+        print(dim(`The rest are private. Run ${key('open &lt;name&gt;')} for the case study or ${runLink('contact')} for a walkthrough.`));
+      },
+    },
     skills: { desc: 'my stack, grouped by layer', run: show.skills },
     experience: {
       desc: 'where I’ve worked',
@@ -194,6 +208,7 @@ export function initTerminal({ root, data, actions, progress }) {
           `${key('Shipped')}  ${PROJECTS.length} end-to-end systems`,
           `${key('Langs')}    TypeScript · Python · C/C++ · SQL`,
           `${key('Stack')}    React · FastAPI · Node · FreeRTOS`,
+          `${key('Tooling')}  Selenium · Pytest · fast-check`,
           `${key('Paper')}    IEEE NIGERCON 2026 (first author)`,
           `${key('Status')}   ${ok('●')} open to new roles`,
           `<span class="term-swatches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>`,
@@ -347,7 +362,7 @@ export function initTerminal({ root, data, actions, progress }) {
     },
   };
 
-  const ALIASES = { resume: 'cv', stack: 'skills', work: 'projects', man: 'help', '?': 'help', time: 'date', secrets: 'hint', quit: 'exit', cls: 'clear', email: 'contact' };
+  const ALIASES = { live: 'demos', demo: 'demos', source: 'demos', resume: 'cv', stack: 'skills', work: 'projects', man: 'help', '?': 'help', time: 'date', secrets: 'hint', quit: 'exit', cls: 'clear', email: 'contact' };
   const commandNames = Object.keys(COMMANDS);
 
   /* ---------- execution ---------- */

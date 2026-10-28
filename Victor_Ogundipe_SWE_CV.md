@@ -30,7 +30,7 @@ Full-Stack & AI Systems Software Engineer (B.Eng. Computer Engineering) experien
 *React 18 · TypeScript · Vite · FastAPI · Python 3.11+ · Cloud Firestore · OpenAlex · Gemini & Claude APIs*
 - Architected a full-stack graduate admissions intelligence platform resolving institutions via ROR v2 and indexing faculty across the live OpenAlex graph (250M+ scholarly works), enforcing a source-backed-or-empty data contract and an ORCID/publication career-stage gate to eliminate hallucinated faculty.
 - Built a dual-document ingestion pipeline (`pymupdf4llm`) parsing thesis PDFs and CVs into a 4-category skill taxonomy, ranking advisor fit via 768-dim Gemini embeddings with Gemini Flash / Claude fallback evaluation and verified NSF/NIH RePORTER grant attribution.
-- Engineered default-deny HS256 JWT session auth, an AES-256-GCM token vault, sliding-window IP rate limiting, OAuth 2.0 PKCE Sign-In (zero inbox read/send permissions), a rubric-scored Statement of Purpose Studio (DOCX/PDF export), and an outreach CRM with A/B tone telemetry.
+- Shipped a rubric-scored Statement of Purpose Studio (DOCX/PDF export) and an outreach CRM with A/B tone telemetry, protected by sliding-window IP rate limiting.
 
 ### **Farm Pay — Multi-Tenant E-Commerce Storefront, Wholesale & Farmer Terminal** | *2026*
 *Node.js 22 · Express · Square Web Payments SDK · JavaScript · QR Scanner · Automated Mock-API Testing*
@@ -55,7 +55,7 @@ Full-Stack & AI Systems Software Engineer (B.Eng. Computer Engineering) experien
 - Implemented a 5 MB chunked multi-gigabyte upload pipeline with SHA-256 integrity verification, HTTP 206 Partial Content byte-range video/audio streaming, real-time WebSocket LAN peer presence, and SQLite WAL multi-user authentication.
 
 ### **Codebase DNA — Interactive GitHub Repository Organism & Dead-Code Visualizer** | *2026*
-*JavaScript (ES Modules) · HTML5 Canvas · Static Dependency Analysis · Node.js*
+*JavaScript (ES Modules) · HTML5 Canvas · Static Dependency Analysis · Node.js* · [github.com/victobiloba/codebase-dna](https://github.com/victobiloba/codebase-dna)
 - Built a zero-dependency static-analysis and physics-driven Canvas engine mapping GitHub repositories into living organisms—rendering modules as organs, files as byte-scaled cells across 15+ languages, internal imports as veins, high fan-in files as stress hotspots, and unreferenced code as scar tissue.
 - Designed framework-aware entrypoint heuristics (Next.js/Nuxt/SvelteKit App Router, Django/Celery autodiscovery, test suites) and per-language stdlib filters to prevent false-positive dead-code flags, with Markdown health report and PNG export.
 
@@ -67,6 +67,10 @@ Full-Stack & AI Systems Software Engineer (B.Eng. Computer Engineering) experien
 ---
 
 ## WORK EXPERIENCE & OPEN SOURCE
+
+### **Full-Stack & AI Systems Engineer** — *ThesisBridge (Independent Product, Remote)* | *2026 – Present*
+*React 18 · TypeScript · FastAPI · Python · Cloud Firestore · Gemini & Claude APIs*
+- Building an evidence-grounded academic intelligence and outreach platform end to end: React/TypeScript UI, FastAPI backend on Cloud Firestore, and a security layer of default-deny HS256 JWT sessions, an AES-256-GCM token vault and minimal-scope OAuth 2.0 PKCE sign-in (zero inbox read/send permissions), verified by a Pytest suite with deterministically stubbed LLM calls.
 
 ### **Freelance Software Automation Engineer** — *Independent Contract (Remote, Nigeria)* | *Sep 2024 – Feb 2025*
 - Architected and delivered a Python & Selenium WebDriver browser automation system handling authenticated session lifecycle, dynamic DOM synchronization, and structured data extraction.

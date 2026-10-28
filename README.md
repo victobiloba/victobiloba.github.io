@@ -5,7 +5,8 @@ Interactive **Full-Stack & AI Systems Software Engineering Portfolio** and **ATS
 ## Design
 
 - **Type:** Geist (UI and body), Geist Mono (labels and code), Instrument Serif italic for headline accents.
-- **Theme:** graphite dark mode and warm-paper light mode with a single signal-orange accent, film grain and a soft top glow. Follows the OS setting, with a manual toggle.
+- **Theme:** Solarized Light by default (base3 cream background, Solarized blue accent) with a Solarized Dark toggle, plus film grain and a soft blue glow. Small text uses a deeper blue so it meets WCAG AA contrast on the cream background.
+- **Responsive:** checked from 320px phones through tablets and landscape to 1920px desktops, with touch-friendly inputs and safe-area insets.
 - **Motion:** every animation has a `prefers-reduced-motion` fallback.
 
 ## Interactive features

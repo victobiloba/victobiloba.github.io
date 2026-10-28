@@ -24,6 +24,8 @@ export const PROJECTS = [
     repoUrl: 'https://github.com/victobiloba/ThesisBridge',
     repoLabel: 'GitHub (Monorepo)',
     isPublicRepo: false,
+    liveUrl: 'https://www.thesisbridgeai.com',
+    liveLabel: 'thesisbridgeai.com',
     summary:
       'Full-stack academic matchmaking and outreach engine indexing 250M+ OpenAlex scholarly works with ROR v2 entity disambiguation, 768-dim Gemini embedding ranking, verified NSF/NIH grant attribution, and a zero-hallucination data contract.',
     metrics: [
@@ -166,6 +168,8 @@ export const PROJECTS = [
     repoUrl: 'https://github.com/victobiloba/abjlife',
     repoLabel: 'GitHub (abjlife)',
     isPublicRepo: false,
+    liveUrl: 'https://abjlife.onrender.com',
+    liveLabel: 'abjlife.onrender.com',
     summary:
       'Browser-played 3D Sims-style life game built atop real OpenStreetMap Abuja roads, landmarks, and Aso Rock terrain—protected by a custom Proof-of-Work and ephemeral in-memory request-signing anti-bot engine.',
     metrics: [
@@ -256,9 +260,9 @@ export const PROJECTS = [
     categories: ['ai', 'systems'],
     categoryLabels: ['Developer Tooling', 'Static Analysis'],
     accent: 'violet',
-    repoUrl: 'https://github.com/victobiloba',
-    repoLabel: 'GitHub Profile',
-    isPublicRepo: false,
+    repoUrl: 'https://github.com/victobiloba/codebase-dna',
+    repoLabel: 'github.com/victobiloba/codebase-dna',
+    isPublicRepo: true,
     summary:
       'Zero-dependency static dependency analyzer and physics-driven HTML5 Canvas engine that sequences any GitHub repository into a living organism—exposing architectural coupling hotspots and dead code in seconds.',
     metrics: [
@@ -343,20 +347,26 @@ export const SKILL_GROUPS = [
   {
     title: 'Languages & Runtime Foundations',
     icon: 'code',
-    items: ['TypeScript', 'Python 3.11+', 'JavaScript (ES2024+)', 'C / C++', 'SQL', 'HTML5 / CSS3'],
+    items: ['Python 3.11+', 'TypeScript', 'JavaScript (ES2024+)', 'C / C++', 'SQL', 'HTML5 / CSS3'],
     provenIn: 'ThesisBridge, MedRoute, NetShare LAN, HerdSense',
+  },
+  {
+    title: 'Backend, APIs & Fintech',
+    icon: 'server',
+    items: ['FastAPI (ASGI)', 'Node.js & Express', 'REST & WebSockets', 'Square Payments SDK', 'Nginx CIDR Proxy', 'HTTP 206 Streaming'],
+    provenIn: 'ThesisBridge, NetShare LAN, Farm Pay, MedRoute',
+  },
+  {
+    title: 'Automation & Testing',
+    icon: 'bot',
+    items: ['Selenium WebDriver', 'Browser Automation & Extraction', 'Pytest', 'Vitest', 'fast-check', 'node:test', 'GitHub Actions'],
+    provenIn: 'Freelance Automation, ThesisBridge, MedRoute, NetShare LAN, Farm Pay',
   },
   {
     title: 'Frontend, 3D & Interactive Web',
     icon: 'layers',
     items: ['React 18 & 19', 'Next.js 16', 'Three.js (WebGL)', 'HTML5 Canvas', 'Tailwind CSS', 'Zustand', 'Leaflet PWA'],
     provenIn: 'Abuja Story, MedRoute, ThesisBridge, Codebase DNA',
-  },
-  {
-    title: 'Backend, Fintech & Network Infra',
-    icon: 'server',
-    items: ['FastAPI (ASGI)', 'Node.js & Express', 'Square Payments SDK', 'Nginx CIDR Proxy', 'WebSockets', 'HTTP 206 Streaming'],
-    provenIn: 'Farm Pay, NetShare LAN, ThesisBridge, MedRoute',
   },
   {
     title: 'Applied AI, Search & Geospatial',
@@ -367,12 +377,24 @@ export const SKILL_GROUPS = [
   {
     title: 'Security, Persistence & Edge Systems',
     icon: 'shield',
-    items: ['OAuth 2.0 PKCE & JWT', 'AES-256-GCM', 'PoW & Request Signing', 'Cloud Firestore & SQLite WAL', 'ESP32-S3 & FreeRTOS', 'Vitest / fast-check / Pytest'],
+    items: ['OAuth 2.0 PKCE & JWT', 'AES-256-GCM', 'PoW & Request Signing', 'Cloud Firestore & SQLite WAL', 'ESP32-S3 & FreeRTOS'],
     provenIn: 'Abuja Story, ThesisBridge, MedRoute, HerdSense',
   },
 ];
 
 export const EXPERIENCE = [
+  {
+    role: 'Full-Stack & AI Systems Engineer',
+    org: 'ThesisBridge · Independent product · Remote',
+    period: '2026 – Present',
+    stack: 'React 18 · TypeScript · FastAPI · Python · Cloud Firestore · Gemini & Claude APIs',
+    projectId: 'thesisbridge',
+    points: [
+      'Building an evidence-grounded academic matchmaking and outreach platform end to end, indexing 250M+ OpenAlex scholarly works with ROR v2 entity resolution and 768-dim Gemini embedding ranking under a zero-hallucination data contract.',
+      'Own the full stack, from the React 18 + TypeScript UI to a FastAPI backend on Cloud Firestore, including default-deny HS256 JWT sessions, an AES-256-GCM token vault, sliding-window rate limiting and minimal-scope Google OAuth 2.0 PKCE sign-in.',
+      'Verify every change with an automated Pytest suite that stubs billed LLM calls deterministically, plus frontend accessibility checks.',
+    ],
+  },
   {
     role: 'Open-Source Contributor',
     org: 'sciencecorp/synapse-python · Science Corp',

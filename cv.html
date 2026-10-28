@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark" />
   <script>
     try {
-      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light";
     } catch {}
   </script>
   <title>Victor Oluwatobiloba Ogundipe — Software Engineering CV</title>
@@ -21,20 +21,20 @@
        tech stacks on their own line and generous section rhythm.
        ====================================================================== */
     :root {
-      --chrome-light: #efeee9;
-      --chrome-dark: #0b0b0c;
-      --paper-light: #ffffff;
-      --paper-dark: #141416;
-      --ink-light: #15140f;
-      --ink-dark: #f3f2ee;
-      --muted-light: #46453f;
-      --muted-dark: #c4c3bd;
-      --soft-light: #6a6962;
-      --soft-dark: #8d8c86;
-      --accent-light: #b3400e;
-      --accent-dark: #ff8a5c;
-      --rule-light: #dcd9d0;
-      --rule-dark: #2e2e33;
+      --chrome-light: #fdf6e3;
+      --chrome-dark: #002b36;
+      --paper-light: #fffcf4;
+      --paper-dark: #073642;
+      --ink-light: #073642;
+      --ink-dark: #fdf6e3;
+      --muted-light: #3f555d;
+      --muted-dark: #c9cfc6;
+      --soft-light: #566a72;
+      --soft-dark: #93a1a1;
+      --accent-light: #1b65a4;
+      --accent-dark: #5eaee6;
+      --rule-light: #e2d9bf;
+      --rule-dark: #1b5160;
 
       --chrome: var(--chrome-light);
       --paper: var(--paper-light);
@@ -237,7 +237,7 @@
     }
 
     section {
-      margin-bottom: 12pt;
+      margin-bottom: 11pt;
     }
 
     section:last-of-type {
@@ -299,7 +299,7 @@
 
     /* Entries */
     .entry {
-      margin-bottom: 9pt;
+      margin-bottom: 8pt;
     }
 
     .entry-head {
@@ -391,7 +391,7 @@
 
     ul.bullets li,
     .compact-list li {
-      margin-bottom: 2pt;
+      margin-bottom: 1.5pt;
       padding-left: 1.5pt;
     }
 
@@ -458,22 +458,22 @@
 
     @page {
       size: A4 portrait;
-      margin: 10mm 13mm;
+      margin: 9mm 13mm;
     }
 
     @media print {
       :root {
         color-scheme: light !important;
         --paper: #ffffff !important;
-        --ink: #15140f !important;
-        --muted: #3f3e39 !important;
-        --soft: #5f5e58 !important;
-        --accent: #b3400e !important;
-        --rule: #d6d3ca !important;
+        --ink: #0a2e38 !important;
+        --muted: #34484f !important;
+        --soft: #50626a !important;
+        --accent: #1a5d96 !important;
+        --rule: #cfd8dc !important;
       }
       body {
         background: #ffffff !important;
-        color: #15140f !important;
+        color: #0a2e38 !important;
         padding: 0 !important;
       }
       .toolbar {
@@ -556,11 +556,11 @@
           <h3 class="entry-title">ThesisBridge — Evidence-Grounded Academic Intelligence &amp; Outreach Platform</h3>
           <span class="entry-date">2026 – Present</span>
         </div>
-        <p class="entry-sub stack-line"><span class="tech-stack">React 18 · TypeScript · FastAPI · Python 3.11+ · Firestore · OpenAlex · Gemini &amp; Claude APIs</span> <a class="entry-link" href="https://github.com/victobiloba/ThesisBridge">github.com/victobiloba/ThesisBridge</a></p>
+        <p class="entry-sub stack-line"><span class="tech-stack">React 18 · TypeScript · FastAPI · Python 3.11+ · Firestore · OpenAlex · Gemini &amp; Claude APIs</span></p>
         <ul class="bullets">
           <li>Architected a full-stack matchmaking engine resolving universities to canonical ROR v2 IDs and indexing faculty across OpenAlex (250M+ works), enforcing a strict source-backed-or-empty contract and an ORCID/byline career-stage gate to eliminate hallucinated advisors.</li>
           <li>Built a dual-document ingestion pipeline (<code>pymupdf4llm</code>) parsing thesis PDFs and CVs into a 4-category skill taxonomy, ranking research fit with 768-dim Gemini embeddings, Gemini Flash / Claude fallback evaluation, and verified NSF/NIH RePORTER grant attribution.</li>
-          <li class="extra-detail">Engineered default-deny HS256 JWT session auth, an AES-256-GCM token vault, sliding-window IP rate limiting, minimal-scope OAuth 2.0 PKCE Sign-In, a rubric-scored Statement of Purpose Studio (DOCX/PDF export), and an outreach CRM with A/B tone telemetry.</li>
+          <li class="extra-detail">Shipped a rubric-scored Statement of Purpose Studio (DOCX/PDF export) and an outreach CRM with A/B tone telemetry, protected by sliding-window IP rate limiting.</li>
         </ul>
       </article>
 
@@ -593,7 +593,7 @@
           <h3 class="entry-title">Abuja Story — 3D Browser Life Simulation &amp; Anti-Automation Security Engine</h3>
           <span class="entry-date">2026</span>
         </div>
-        <p class="entry-sub stack-line"><span class="tech-stack">Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM) · Firebase</span> <a class="entry-link" href="https://github.com/victobiloba/abjlife">github.com/victobiloba/abjlife</a></p>
+        <p class="entry-sub stack-line"><span class="tech-stack">Next.js 16 · React 19 · Three.js · TypeScript · Zustand · Python (OSM) · Firebase</span></p>
         <ul class="bullets">
           <li>Built a browser 3D city simulation generated from real OpenStreetMap Abuja roads, waterways, and landmarks via a Python geometry pipeline (<code>build-abuja-map.py</code>), featuring graph-routed rides (<code>roadGraph.ts</code>), procedural audio synthesis, encrypted messaging, and multiplayer social systems.</li>
           <li class="extra-detail">Engineered a custom defense-in-depth anti-bot guard (<code>lib/guard/</code>): Proof-of-Work <code>/api/handshake</code> challenges, WebDriver/CDP headless detection, ephemeral in-memory request signing keys preventing <code>curl</code> cookie replay, synthetic DOM event rejection, and bundle obfuscation.</li>
@@ -614,10 +614,10 @@
 
       <article class="entry extra-detail">
         <div class="entry-head">
-          <h3 class="entry-title">Codebase DNA — Interactive GitHub Repository Organism &amp; Dead-Code Visualizer</h3>
+          <h3 class="entry-title"><a href="https://github.com/victobiloba/codebase-dna">Codebase DNA — Interactive GitHub Repository Organism &amp; Dead-Code Visualizer</a></h3>
           <span class="entry-date">2026</span>
         </div>
-        <p class="entry-sub stack-line"><span class="tech-stack">JavaScript (ES Modules) · HTML5 Canvas · Static Import Graph Analysis · Node.js</span></p>
+        <p class="entry-sub stack-line"><span class="tech-stack">JavaScript (ES Modules) · HTML5 Canvas · Static Import Graph Analysis · Node.js</span> <a class="entry-link" href="https://github.com/victobiloba/codebase-dna">github.com/victobiloba/codebase-dna</a></p>
         <ul class="bullets">
           <li>Created a zero-dependency static-analysis and physics-driven Canvas visualizer mapping GitHub repos into living organisms (modules as organs, files across 15+ languages as cells, imports as veins, high fan-in hotspots as stress, and unreferenced files as scar tissue) with framework-route dead-code heuristics and Markdown/PNG export.</li>
         </ul>
@@ -637,6 +637,20 @@
 
     <section aria-labelledby="sec-experience">
       <h2 id="sec-experience">Work Experience &amp; Open Source</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Full-Stack &amp; AI Systems Engineer — ThesisBridge (Independent Product)</h3>
+          <span class="entry-date">2026 – Present</span>
+        </div>
+        <div class="entry-sub">
+          <span>Remote</span>
+          <span class="tech-stack">React 18 · TypeScript · FastAPI · Python · Firestore · Gemini &amp; Claude APIs</span>
+        </div>
+        <ul class="bullets">
+          <li>Building an evidence-grounded academic intelligence and outreach platform end to end: React/TypeScript UI, FastAPI on Cloud Firestore, default-deny JWT sessions, an AES-256-GCM token vault and OAuth 2.0 PKCE sign-in, verified by Pytest with stubbed LLM calls.</li>
+        </ul>
+      </article>
 
       <article class="entry">
         <div class="entry-head">
@@ -682,7 +696,7 @@
       </div>
       <ul class="compact-list">
         <li><strong>IEEE Publication (2026):</strong> Ogundipe, V.O., &amp; Adedokun, A. <em>“Development of an IoT-based Wearable Device for Real-Time Health and Activities Monitoring of Native Fulani Cattle.”</em> 2026 IEEE NIGERCON, Lagos <em>(Conditionally accepted)</em>.</li>
-        <li><strong>Machine Learning Training:</strong> Applied Machine Learning Fellow, <em>AI Federax</em> (2024–2025), a year-long applied ML programme.</li>
+        <li><strong>Machine Learning Training:</strong> Applied Machine Learning Fellow, <em>AI Federax</em> (2024–2025), year-long programme.</li>
       </ul>
     </section>
   </main>
